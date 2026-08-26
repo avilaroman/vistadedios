@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌐 Vista desde la perspectiva de Dios
+# 🌐 VistaDeDios
 
 ### Un simulador de satélite espía en tu navegador: descubre que las fuentes son públicas y los datos son reales.
 
