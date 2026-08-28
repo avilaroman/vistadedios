@@ -1,59 +1,50 @@
-# Contributing to God's Eye View
+🤝 Contribuyendo a God's Eye View
 
-Thanks for being here. God's Eye View is an open foundation for live spatial intelligence in the browser, and it gets better when more people run it, break it, and extend it.
+Gracias por estar aquí. God's Eye View es una fundación abierta para inteligencia espacial en vivo en el navegador, ¡y mejora cuando más personas lo ejecutan, lo rompen y lo extienden!
 
-## Getting set up
+🚀 Configuración inicial
 
-Use Node.js 24.14.x or 26.x (also enforced by `package.json`).
+Usa Node.js 24.14.x o 26.x (también requerido por package.json).
 
-```bash
+bash
 git clone https://github.com/bilawalsidhu/gods-eye-view.git
 cd gods-eye-view
 nvm install 24.14.0
 nvm use 24.14.0
 npm install
-./scripts/dev-fresh.sh        # or: GOOGLE_MAPS_API_KEY="…" npm run dev
-```
+./scripts/dev-fresh.sh        # o: GOOGLE_MAPS_API_KEY="…" npm run dev
 
-You need a **Google Maps API key** with the Map Tiles API enabled (see the [README](README.md#-api-keys)). Most data layers work with no other accounts. On macOS the launcher pulls keys from the Keychain; on any platform you can pass them as env vars or use a `.env` (copy `.env.example`).
+Necesitas una clave de API de Google Maps con la API Map Tiles habilitada (consulta el README). La mayoría de capas de datos funcionan sin otras cuentas. En macOS, el lanzador extrae claves del Keychain; en cualquier plataforma puedes pasarlas como variables de entorno o usar un .env (copia .env.example).
 
-Open `http://localhost:4173`. Before sending a PR run `npm run build`, `npm test`, and `npm run test:track` (dev server must be up) — **all three must stay green.**
+Abre http://localhost:4173. Antes de enviar un PR ejecuta npm run build, npm test, y npm run test:track (el servidor dev debe estar activo) — los tres deben estar en verde. ✅
 
-## Good first contributions
+🎯 Buenas primeras contribuciones
 
-The highest-leverage places to jump in:
+Los lugares de mayor impacto para comenzar:
 
-- **🌆 Add a CCTV source pack.** Austin is the reference camera source. Adding another city means a clean public camera catalog with coordinates, attribution, and server-registered frame URLs (the proxy only fetches registered URLs — never client-supplied ones, see [SECURITY.md](SECURITY.md)). City packs are the best first lane.
-- **🛰️ Add or improve a data layer.** Each layer is one self-contained module in `src/data/<layer>.js` implementing the layer interface (`init/enable/disable/update/destroy/getStats`, optional `getDetectableObjects`/`getStats`). Use an existing layer as a template.
-- **🎙️ Extend voice control.** Voice tools are declared server-side (`GEV_REALTIME_TOOLS` in `vite.config.js`) and executed client-side (`src/voice/gevActions.js`). Keep the tool surface tight and the responses honest (confirm only what actually happened).
-- **🎨 Add a visual style.** Styles are GLSL post-process shaders in `src/styles/`.
-- **🐛 Fix bugs / improve the first-run experience.** See [docs/KNOWN-ISSUES.md](docs/KNOWN-ISSUES.md).
+🌆 Agrega un paquete de fuente CCTV. Austin es la fuente de cámara de referencia. Agregar otra ciudad significa un catálogo de cámaras públicas limpio con coordenadas, atribución y URLs de fotogramas registrados en el servidor (el proxy solo obtiene URLs registradas — nunca proporcionadas por el cliente, ver SECURITY.md). Los paquetes de ciudades son el mejor primer paso.
+🛰️ Agrega o mejora una capa de datos. Cada capa es un módulo independiente en src/data/<layer>.js que implementa la interfaz de capa (init/enable/disable/update/destroy/getStats, opcional getDetectableObjects/getStats). Usa una capa existente como plantilla.
+🎙️ Extiende el control de voz. Las herramientas de voz se declaran del lado del servidor (GEV_REALTIME_TOOLS en vite.config.js) y se ejecutan del lado del cliente (src/voice/gevActions.js). Mantén la superficie de herramientas ajustada y las respuestas honestas (confirma solo lo que realmente pasó).
+🎨 Agrega un estilo visual. Los estilos son shaders de post-procesamiento GLSL en src/styles/.
+🐛 Corrige bugs / mejora la experiencia de primera ejecución. Ver docs/KNOWN-ISSUES.md.
+⚡ Arquitectura en un minuto
+Sin framework. Vanilla JS + CesiumJS + Vite.
+La UI vive en src/ui.js (paneles, HUD, estilos, la fachada de control). La lógica de capas vive en src/data/<layer>.js. Mantenlos separados.
+Los secretos se quedan del lado del servidor. Cualquier cosa que necesite una clave privada pasa por un proxy de Vite en vite.config.js. El navegador solo ve la clave de Google Maps (que restrictas) y tokens efímeros.
+docs/CURRENT-STATE.md es la referencia autorizada en tiempo de ejecución — léela primero.
+📝 Estilo de código
+Módulos ES, indentación de 2 espacios, comillas simples, punto y coma.
+JSDoc en funciones exportadas/públicas.
+Coincide con el código circundante — densidad de comentarios, nombres e idioma.
+Prefiere commits pequeños y revisables. Los prefijos de estilo de commit convencional (feat:, fix:, perf:, docs:) se aprecian pero no son obligatorios.
+📤 Solicitudes de cambios (Pull Requests)
+Crea una rama a partir de main.
+Mantén npm run build, npm test, y npm run test:track en verde y evita nuevos errores en la consola.
+Si cambias el comportamiento en tiempo de ejecución, actualiza docs/CURRENT-STATE.md y CHANGELOG.md en el mismo PR.
+Si agregas o cambias una fuente de datos, actualiza DATA_SOURCES.md con su licencia y atribución. No agregues datos que no tengas derecho a redistribuir — obtén el acceso en tiempo de ejecución en su lugar.
+Describe qué cambiaste y cómo lo verificaste (capturas de pantalla bienvenidas para cualquier cosa visual). 📸
+🏛️ Reglas básicas
+Esta es una herramienta para datos públicos. No agregues scraping de fuentes cuyos términos lo prohíben, conjuntos de datos privados/pagos, o cualquier cosa que represente falsamente la inferencia de datos públicos como inteligencia autorizada.
+Sé decente con los demás. Asume buena fe, mantén las cosas constructivas. 🤗
 
-## Architecture in one minute
-
-- **No framework.** Vanilla JS + [CesiumJS](https://cesium.com/platform/cesiumjs/) + [Vite](https://vitejs.dev/).
-- **UI lives in `src/ui.js`** (panels, HUD, styles, the control facade). **Layer logic lives in `src/data/<layer>.js`.** Keep them separate.
-- **Secrets stay server-side.** Anything needing a private key goes through a Vite proxy in `vite.config.js`. The browser only ever sees the Google Maps key (which you restrict) and ephemeral tokens.
-- `docs/CURRENT-STATE.md` is the authoritative runtime reference — read it first.
-
-## Coding style
-
-- ES modules, **2-space indent, single quotes, semicolons.**
-- JSDoc on exported/public functions.
-- Match the surrounding code — comment density, naming, and idiom.
-- Prefer small, reviewable commits. Conventional-commit-style prefixes (`feat:`, `fix:`, `perf:`, `docs:`) are appreciated but not required.
-
-## Pull requests
-
-1. Branch off `main`.
-2. Keep `npm run build`, `npm test`, and `npm run test:track` green and avoid new console errors.
-3. If you change runtime behavior, update `docs/CURRENT-STATE.md` and `CHANGELOG.md` in the same PR.
-4. If you add or change a data source, update [DATA_SOURCES.md](DATA_SOURCES.md) with its license and attribution. **Don't add data you don't have the right to redistribute** — fetch it at runtime instead.
-5. Describe what you changed and how you verified it (screenshots welcome for anything visual).
-
-## Ground rules
-
-- This is a tool for **public** data. Don't add scraping of sources whose terms forbid it, private/paywalled datasets, or anything that misrepresents public-data inference as authoritative intelligence.
-- Be decent to each other. Assume good faith, keep it constructive.
-
-By contributing, you agree your contributions are licensed under the project's [MIT License](LICENSE).
+Al contribuir, aceptas que tus contribuciones están licenciadas bajo la Licencia MIT del proyecto.
