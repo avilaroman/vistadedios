@@ -1,50 +1,73 @@
-🤝 Contribuyendo a God's Eye View
+# 👁️ Contribuyendo a Vista de Dios
 
-Gracias por estar aquí. God's Eye View es una fundación abierta para inteligencia espacial en vivo en el navegador, ¡y mejora cuando más personas lo ejecutan, lo rompen y lo extienden!
+Gracias por estar aquí. God's Eye View es una plataforma abierta para inteligencia espacial en tiempo real en el navegador, y mejora con cada nueva persona que la usa, la pone a prueba y la amplía.
 
-🚀 Configuración inicial
+## 🚀 Configuración
 
-Usa Node.js 24.14.x o 26.x (también requerido por package.json).
+Usa Node.js 24.14.x o 26.x (esto también se aplica mediante `package.json`).
 
-bash
+```bash
 git clone https://github.com/bilawalsidhu/gods-eye-view.git
 cd gods-eye-view
 nvm install 24.14.0
 nvm use 24.14.0
 npm install
-./scripts/dev-fresh.sh        # o: GOOGLE_MAPS_API_KEY="…" npm run dev
+./scripts/dev-fresh.sh # o: GOOGLE_MAPS_API_KEY="…" npm run dev
+```
 
-Necesitas una clave de API de Google Maps con la API Map Tiles habilitada (consulta el README). La mayoría de capas de datos funcionan sin otras cuentas. En macOS, el lanzador extrae claves del Keychain; en cualquier plataforma puedes pasarlas como variables de entorno o usar un .env (copia .env.example).
+Necesitas una **clave API de Google Maps** con la API de mosaicos de mapas habilitada (consulta el [README](README.md#-api-keys)). La mayoría de las capas de datos funcionan sin otras cuentas. En macOS, el lanzador obtiene las claves del llavero; en cualquier plataforma, puedes pasarlas como variables de entorno o usar un archivo `.env` (copia `.env.example`).
 
-Abre http://localhost:4173. Antes de enviar un PR ejecuta npm run build, npm test, y npm run test:track (el servidor dev debe estar activo) — los tres deben estar en verde. ✅
+Abre `http://localhost:4173`. Antes de enviar una solicitud de extracción, ejecuta `npm run build`, `npm test` y `npm run test:track` (el servidor de desarrollo debe estar activo). **Los tres comandos deben permanecer en verde.** ✅
 
-🎯 Buenas primeras contribuciones
+## 🎯 Buenas primeras contribuciones
 
-Los lugares de mayor impacto para comenzar:
+Los puntos de mayor impacto para empezar:
 
-🌆 Agrega un paquete de fuente CCTV. Austin es la fuente de cámara de referencia. Agregar otra ciudad significa un catálogo de cámaras públicas limpio con coordenadas, atribución y URLs de fotogramas registrados en el servidor (el proxy solo obtiene URLs registradas — nunca proporcionadas por el cliente, ver SECURITY.md). Los paquetes de ciudades son el mejor primer paso.
-🛰️ Agrega o mejora una capa de datos. Cada capa es un módulo independiente en src/data/<layer>.js que implementa la interfaz de capa (init/enable/disable/update/destroy/getStats, opcional getDetectableObjects/getStats). Usa una capa existente como plantilla.
-🎙️ Extiende el control de voz. Las herramientas de voz se declaran del lado del servidor (GEV_REALTIME_TOOLS en vite.config.js) y se ejecutan del lado del cliente (src/voice/gevActions.js). Mantén la superficie de herramientas ajustada y las respuestas honestas (confirma solo lo que realmente pasó).
-🎨 Agrega un estilo visual. Los estilos son shaders de post-procesamiento GLSL en src/styles/.
-🐛 Corrige bugs / mejora la experiencia de primera ejecución. Ver docs/KNOWN-ISSUES.md.
-⚡ Arquitectura en un minuto
-Sin framework. Vanilla JS + CesiumJS + Vite.
-La UI vive en src/ui.js (paneles, HUD, estilos, la fachada de control). La lógica de capas vive en src/data/<layer>.js. Mantenlos separados.
-Los secretos se quedan del lado del servidor. Cualquier cosa que necesite una clave privada pasa por un proxy de Vite en vite.config.js. El navegador solo ve la clave de Google Maps (que restrictas) y tokens efímeros.
-docs/CURRENT-STATE.md es la referencia autorizada en tiempo de ejecución — léela primero.
-📝 Estilo de código
-Módulos ES, indentación de 2 espacios, comillas simples, punto y coma.
-JSDoc en funciones exportadas/públicas.
-Coincide con el código circundante — densidad de comentarios, nombres e idioma.
-Prefiere commits pequeños y revisables. Los prefijos de estilo de commit convencional (feat:, fix:, perf:, docs:) se aprecian pero no son obligatorios.
-📤 Solicitudes de cambios (Pull Requests)
-Crea una rama a partir de main.
-Mantén npm run build, npm test, y npm run test:track en verde y evita nuevos errores en la consola.
-Si cambias el comportamiento en tiempo de ejecución, actualiza docs/CURRENT-STATE.md y CHANGELOG.md en el mismo PR.
-Si agregas o cambias una fuente de datos, actualiza DATA_SOURCES.md con su licencia y atribución. No agregues datos que no tengas derecho a redistribuir — obtén el acceso en tiempo de ejecución en su lugar.
-Describe qué cambiaste y cómo lo verificaste (capturas de pantalla bienvenidas para cualquier cosa visual). 📸
-🏛️ Reglas básicas
-Esta es una herramienta para datos públicos. No agregues scraping de fuentes cuyos términos lo prohíben, conjuntos de datos privados/pagos, o cualquier cosa que represente falsamente la inferencia de datos públicos como inteligencia autorizada.
-Sé decente con los demás. Asume buena fe, mantén las cosas constructivas. 🤗
+- **🌆 Añadir un paquete de fuentes de CCTV.** Austin es la fuente de referencia de cámaras. Añadir otra ciudad implica un catálogo público de cámaras limpio con coordenadas, atribución y URL de fotogramas registradas en el servidor (el proxy solo obtiene las URL registradas, nunca las proporcionadas por el cliente; consulta [SECURITY.md](SECURITY.md)). Los paquetes de ciudades son la mejor opción para empezar.
 
-Al contribuir, aceptas que tus contribuciones están licenciadas bajo la Licencia MIT del proyecto.
+- **🛰️ Añadir o mejorar una capa de datos.** Cada capa es un módulo independiente en `src/data/<layer>.js` que implementa la interfaz de capa (`init/enable/disable/update/destroy/getStats`, opcionalmente `getDetectableObjects`/`getStats`). Utilice una capa existente como plantilla.
+
+- **🎙️ Ampliar el control por voz.** Las herramientas de voz se declaran en el servidor (`GEV_REALTIME_TOOLS` en `vite.config.js`) y se ejecutan en el cliente (`src/voice/gevActions.js`). Mantenga la interfaz de la herramienta sencilla y las respuestas honestas (confirme solo lo que realmente sucedió).
+
+- **🎨 Añadir un estilo visual.** Los estilos son sombreadores de posprocesamiento GLSL en `src/styles/`.
+
+- **🐛 Corrección de errores / mejora de la experiencia inicial.** Consulta [docs/KNOWN-ISSUES.md](docs/KNOWN-ISSUES.md).
+
+## 🏗️ Arquitectura en un minuto
+
+- **🔧 Sin framework.** JavaScript puro + [CesiumJS](https://cesium.com/platform/cesiumjs/) + [Vite](https://vitejs.dev/).
+
+- **📱 La interfaz de usuario se encuentra en `src/ui.js`** (paneles, HUD, estilos, la fachada de control). **La lógica de las capas se encuentra en `src/data/<layer>.js`.** Manténgalas separadas.
+
+- **🔐 Los secretos se almacenan en el servidor.** Todo lo que requiere una clave privada pasa por un proxy Vite en `vite.config.js`. El navegador solo ve la clave de Google Maps (que usted restringe) y los tokens efímeros.
+
+- **📖 `docs/CURRENT-STATE.md` es la referencia principal en tiempo de ejecución; léala primero.**
+
+## 💻 Estilo de codificación
+
+- 📝 Módulos ES, **sangría de 2 espacios, comillas simples, punto y coma.**
+- 📚 JSDoc para funciones exportadas/públicas.
+
+- 🎯 Mantenga la misma densidad de comentarios, nomenclatura y estilo que el código circundante.
+
+- ✨ Prefiera commits pequeños y revisables. Se agradecen los prefijos de estilo convencional (`feat:`, `fix:`, `perf:`, `docs:`), pero no son obligatorios.
+
+## 🔄 Solicitudes de extracción
+
+1. 🌿 Cree una rama a partir de `main`.
+
+2. ✅ Mantenga `npm run build`, `npm test` y `npm run test:track` en verde y evite nuevos errores en la consola.
+
+3. 📝 Si modifica el comportamiento en tiempo de ejecución, actualice `docs/CURRENT-STATE.md` y `CHANGELOG.md` en la misma solicitud de extracción.
+
+4. 📊 Si añades o modificas una fuente de datos, actualiza [DATA_SOURCES.md](DATA_SOURCES.md) con su licencia y atribución. **No añadas datos que no tengas derecho a redistribuir**; obténlos en tiempo de ejecución.
+
+5. 📸 Describe los cambios realizados y cómo los verificaste (se agradecen las capturas de pantalla para cualquier elemento visual).
+
+## 📋 Reglas básicas
+
+- 🌍 Esta es una herramienta para datos **públicos**. No añadas extracción de datos de fuentes cuyos términos lo prohíban, conjuntos de datos privados o de pago, ni nada que presente la inferencia de datos públicos como información fidedigna.
+
+- 🤝 Sean respetuosos entre ustedes. Partan de la base de que actúan de buena fe y mantengan una actitud constructiva.
+
+Al contribuir, aceptas que tus contribuciones se rigen por la [Licencia MIT](LICENSE) del proyecto. ⚖️
