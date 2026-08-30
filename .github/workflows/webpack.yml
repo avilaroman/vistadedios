@@ -26,4 +26,12 @@ jobs:
       run: |
         npm install
         npm i -g vite
-        npm run preview -- --port 8080 --host 0.0.0.0
+        npm run preview -- --port 8080 --host 0.0.0.0 &
+    - name: Esperar a que el servidor responda
+      run: npx wait-on http://localhost:8080 --timeout 60000
+    - name: Crear túnel público con Ngrok
+      uses: shogo82148/actions-ngrok@v1
+      with:
+          ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
+          tunnel_type: http
+          tunnel_port: 8080
