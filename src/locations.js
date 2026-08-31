@@ -12,6 +12,95 @@ import { viewportBias, placesNearViewRecovery } from './annotations/annotationRe
  *   buildingHeight — estimated height of landmark center above ground (meters)
  */
 export const CITY_POIS = {
+<<<<<<< HEAD
+=======
+  tucuman: {
+    name: 'Tucumán',
+    groundElevation: 450,
+    viewBounds: { southwest: { lat: -27.00, lng: -65.55 }, northeast: { lat: -26.65, lng: -65.15 } },
+    pois: [
+      { name: 'Casa Histórica de la Independencia', lat: -26.8329, lon: -65.2033, alt: 400, pitch: -25, heading: 180, buildingHeight: 15 },
+      { name: 'Plaza Independencia', lat: -26.8310, lon: -65.2039, alt: 450, pitch: -30, heading: 0, buildingHeight: 10 },
+      { name: 'Catedral de San Miguel de Tucumán', lat: -26.8321, lon: -65.2031, alt: 400, pitch: -22, heading: 90, buildingHeight: 25 },
+      { name: 'Parque 9 de Julio', lat: -26.8364, lon: -65.1925, alt: 500, pitch: -35, heading: 45, buildingHeight: 12 },
+      { name: 'Cerro San Javier', lat: -26.7825, lon: -65.3422, alt: 1200, pitch: -20, heading: 135, buildingHeight: 30 },
+    ],
+  },
+  buenosaires: {
+    name: 'Buenos Aires',
+    groundElevation: 25,
+    viewBounds: { southwest: { lat: -34.70, lng: -58.55 }, northeast: { lat: -34.52, lng: -58.33 } },
+    pois: [
+      { name: 'Obelisco de Buenos Aires', lat: -34.6037, lon: -58.3816, alt: 400, pitch: -25, heading: 220, buildingHeight: 67 },
+      { name: 'Teatro Colón', lat: -34.4331, lon: -58.3838, alt: 450, pitch: -20, heading: 180, buildingHeight: 35 },
+      { name: 'Casa Rosada', lat: -34.6083, lon: -58.3701, alt: 350, pitch: -28, heading: 90, buildingHeight: 20 },
+      { name: 'Puente de la Mujer', lat: -34.6124, lon: -58.3637, alt: 400, pitch: -30, heading: 45, buildingHeight: 25 },
+      { name: 'Palacio Barolo', lat: -34.6091, lon: -58.3860, alt: 500, pitch: -22, heading: 310, buildingHeight: 100 },
+    ],
+  },
+  cordoba: {
+    name: 'Córdoba',
+    groundElevation: 390,
+    viewBounds: { southwest: { lat: -31.45, lng: -64.25 }, northeast: { lat: -31.33, lng: -64.12 } },
+    pois: [
+      { name: 'Manzana Jesuítica', lat: -31.4173, lon: -64.1888, alt: 450, pitch: -25, heading: 180, buildingHeight: 25 },
+      { name: 'Catedral de Córdoba', lat: -31.4168, lon: -64.1837, alt: 400, pitch: -22, heading: 90, buildingHeight: 40 },
+      { name: 'Nueva Córdoba / Faro del Bicentenario', lat: -31.4326, lon: -64.1856, alt: 500, pitch: -30, heading: 0, buildingHeight: 80 },
+      { name: 'Paseo del Buen Pastor', lat: -31.4258, lon: -64.1867, alt: 400, pitch: -28, heading: 45, buildingHeight: 20 },
+      { name: 'Cañada de Córdoba', lat: -31.4161, lon: -64.1912, alt: 350, pitch: -35, heading: 135, buildingHeight: 15 },
+    ],
+  },
+  santafe: {
+    name: 'Santa Fe',
+    groundElevation: 15,
+    viewBounds: { southwest: { lat: -31.67, lng: -60.75 }, northeast: { lat: -31.58, lng: -60.65 } },
+    pois: [
+      { name: 'Puente Colgante Ing. Alberto Marcial Candioti', lat: -31.6385, lon: -60.6874, alt: 450, pitch: -25, heading: 90, buildingHeight: 35 },
+      { name: 'Casa de Gobierno de Santa Fe', lat: -31.6496, lon: -60.7088, alt: 400, pitch: -20, heading: 180, buildingHeight: 25 },
+      { name: 'Convento de San Francisco', lat: -31.6460, lon: -60.7093, alt: 380, pitch: -28, heading: 0, buildingHeight: 20 },
+      { name: 'Peatonal San Martín', lat: -31.6443, lon: -60.7056, alt: 400, pitch: -30, heading: 45, buildingHeight: 25 },
+      { name: 'Estación Fluvial Santa Fe', lat: -31.6369, lon: -60.6908, alt: 500, pitch: -22, heading: 135, buildingHeight: 15 },
+    ],
+  },
+  monteros: {
+    name: 'Monteros Tucumán',
+    groundElevation: 320,
+    viewBounds: { southwest: { lat: -27.20, lng: -65.55 }, northeast: { lat: -27.12, lng: -65.45 } },
+    pois: [
+      { name: 'Monumento al Surco', lat: -27.1673, lon: -65.5015, alt: 350, pitch: -25, heading: 0, buildingHeight: 12 },
+      { name: 'Plaza Bernabé Aráoz', lat: -27.1681, lon: -65.5020, alt: 350, pitch: -30, heading: 45, buildingHeight: 10 },
+      { name: 'Iglesia Nuestra Señora del Rosario', lat: -27.1670, lon: -65.5009, alt: 380, pitch: -20, heading: 180, buildingHeight: 22 },
+      { name: 'Mercado Municipal de Monteros', lat: -27.1695, lon: -65.5032, alt: 350, pitch: -25, heading: 90, buildingHeight: 15 },
+      { name: 'Templo de la Inmaculada Concepción', lat: -27.1658, lon: -65.5041, alt: 350, pitch: -22, heading: 310, buildingHeight: 18 },
+    ],
+  },
+  rosario: {
+    name: 'Rosario',
+    groundElevation: 24,
+    viewBounds: { southwest: { lat: -33.00, lng: -60.72 }, northeast: { lat: -32.89, lng: -60.60 } },
+    pois: [
+      { name: 'Monumento Histórico Nacional a la Bandera', lat: -32.9477, lon: -60.6305, alt: 500, pitch: -30, heading: 180, buildingHeight: 70 },
+      { name: 'Puente Rosario-Victoria', lat: -32.8921, lon: -60.6432, alt: 900, pitch: -20, heading: 45, buildingHeight: 50 },
+      { name: 'Parque de la Independencia', lat: -32.9566, lon: -60.6543, alt: 600, pitch: -25, heading: 90, buildingHeight: 20 },
+      { name: 'Bolsa de Comercio de Rosario', lat: -32.9469, lon: -60.6393, alt: 400, pitch: -22, heading: 315, buildingHeight: 55 },
+      { name: 'Catedral Nuestra Señora del Rosario', lat: -32.9502, lon: -60.6372, alt: 420, pitch: -28, heading: 0, buildingHeight: 35 },
+    ],
+  },
+  sannicolas: {
+    name: 'San Nicolas',
+    groundElevation: 25,
+    viewBounds: { southwest: { lat: -33.36, lng: -60.26 }, northeast: { lat: -33.28, lng: -60.18 } },
+    pois: [
+      { name: 'Santuario de Nuestra Señora del Rosario de San Nicolás', lat: -33.3283, lon: -60.2185, alt: 450, pitch: -25, heading: 45, buildingHeight: 60 },
+      { name: 'Plaza Mitre', lat: -33.3323, lon: -60.2181, alt: 380, pitch: -30, heading: 0, buildingHeight: 15 },
+      { name: 'Teatro Municipal Municipal Rafael de Aguiar', lat: -33.3338, lon: -60.2154, alt: 400, pitch: -22, heading: 180, buildingHeight: 25 },
+      { name: 'Catedral San Nicolás de Bari', lat: -33.3312, lon: -60.2198, alt: 400, pitch: -28, heading: 90, buildingHeight: 30 },
+      { name: 'Costanera San Nicolás', lat: -33.3239, lon: -60.2152, alt: 500, pitch: -20, heading: 315, buildingHeight: 10 },
+    ],
+  },
+}
+};
+>>>>>>> refs/remotes/origin/main
 
 tucuman: {
     name: 'Tucumán (Provincia / San Miguel de Tucumán)',
