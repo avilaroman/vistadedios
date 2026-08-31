@@ -5542,7 +5542,7 @@ const GEV_REALTIME_TOOLS = [
       properties: {
         locationId: {
           type: 'string',
-          enum: ['austin', 'sf', 'nyc', 'tokyo', 'london', 'paris', 'dubai', 'dc'],
+          enum: ['Buenos Aires', 'Córdoba', 'Santa Fé', 'Tuc', 'Salta', 'Mendoza', 'Misiones', 'Mar del PLata'],
           description: 'Known city preset ID. Use when the requested place matches one of these cities.',
         },
         query: {
