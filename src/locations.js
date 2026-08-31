@@ -96,7 +96,7 @@ export const CITY_POIS = {
       { name: 'Costanera San Nicolás', lat: -33.3239, lon: -60.2152, alt: 500, pitch: -20, heading: 315, buildingHeight: 10 },
     ],
   },
-}
+
 };
 
 /**
