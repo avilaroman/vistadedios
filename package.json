@@ -1,18 +1,18 @@
 {
-  "name": "gods-eye-view",
+  "name": "vistadedios",
   "private": true,
   "version": "0.1.0",
-  "description": "A real-time intelligence console for planet Earth — photorealistic 3D globe, live aircraft/ships/satellites/earthquakes/CCTV, and hands-free voice control. Runs in a browser.",
+  "description": "Consola de Inteligencia en Tiempo-Real para el planeta Tierra — Globo 3D Fotorealista/Aeronaves en vivo/Barcos/Satelites/Terremotos/CCTV,y Control por voz en manos libres. Corre en el Navegador.",
   "type": "module",
   "license": "MIT",
-  "author": "Bilawal Sidhu",
-  "homepage": "https://github.com/bilawalsidhu/gods-eye-view#readme",
+  "author": "avilaroman",
+  "homepage": "https://github.com/avilaroman/vistadedios#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bilawalsidhu/gods-eye-view.git"
+    "url": "https://github.com/avilaroman/vistadedios.git"
   },
   "bugs": {
-    "url": "https://github.com/bilawalsidhu/gods-eye-view/issues"
+    "url": "https://github.com/avilaroman/vistadedios/issues"
   },
   "engines": {
     "node": ">=24.14.0 <25 || >=26 <27"

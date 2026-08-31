@@ -1,0 +1,21 @@
+[
+  {
+    "id": "tucuman-casa-historica-frontal",
+    "name": "Casa Historica de Tucuman - Vista Frontal",
+    "city": "San Miguel de Tucuman",
+    "cityId": "san-miguel-de-tucuman",
+    "provider": "Pilot Feed Pack",
+    "sourceKind": "pilot",
+    "feedType": "mp4",
+    "url": "rtsp://100.69.198.79:8554/onvif1.mp4",
+    "lat": -26.832742,
+    "lon": -65.203671,
+    "headingDeg": 115,
+    "pitchDeg": -15,
+    "fovDeg": 65,
+    "rangeM": 450,
+    "mountHeightM": 15,
+    "groundElevationM": 431,
+    "license": "Demo sample stream for projection pipeline testing"
+  }
+]
