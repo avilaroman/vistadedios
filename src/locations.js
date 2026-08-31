@@ -99,9 +99,7 @@ export const CITY_POIS = {
     ],
   },
 }
-};
->>>>>>> refs/remotes/origin/main
-
+}
 tucuman: {
     name: 'Tucumán (Provincia / San Miguel de Tucumán)',
     groundElevation: 450,
