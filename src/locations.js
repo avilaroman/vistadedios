@@ -95,7 +95,7 @@ export const CITY_POIS = {
       { name: 'Catedral San Nicolás de Bari', lat: -33.3312, lon: -60.2198, alt: 400, pitch: -28, heading: 90, buildingHeight: 30 },
       { name: 'Costanera San Nicolás', lat: -33.3239, lon: -60.2152, alt: 500, pitch: -20, heading: 315, buildingHeight: 10 },
     ],
-  },
+  }
 
 };
 
