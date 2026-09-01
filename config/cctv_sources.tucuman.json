@@ -7,7 +7,7 @@
     "provider": "Pilot Feed Pack",
     "sourceKind": "pilot",
     "feedType": "mp4",
-    "url": "rtsp://100.69.198.79:8554/onvif1.mp4",
+    "url": "http://100.69.198.79/stream/index.m3u8",
     "lat": -26.832742,
     "lon": -65.203671,
     "headingDeg": 115,
