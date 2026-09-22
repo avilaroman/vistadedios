@@ -163,7 +163,7 @@
         <div class="cockpit-readout cockpit-speed">
           <span class="cockpit-readout-label">VELOCIDAD EN TIERRA</span>
           <strong id="cockpit-speed-value">---</strong>
-          <span class="cockpit-readout-unit">KTS</span>
+          <span class="cockpit-readout-unit">NUDOS</span>
         </div>
         <div class="cockpit-heading-value"><span id="cockpit-heading-value">---</span><small>°</small></div>
         <div class="cockpit-readout cockpit-altitude">
@@ -219,9 +219,9 @@
           id="cockpit-weather-toggle"
           class="cockpit-context-weather"
           type="button"
-          aria-label="Enable cockpit weather effects"
+          aria-label="Efectos Meteorologicos"
           aria-pressed="false"
-          title="Enable cockpit weather effects"
+          title="Activar Meteorologico"
         >
           <span>WX</span>
           <strong id="cockpit-weather-state">OFF</strong>
@@ -229,8 +229,8 @@
         <time id="cockpit-context-updated">--:--:--Z</time>
       </footer>
     </aside>
-    <aside id="cockpit-signal-stream" class="cockpit-signal-window" aria-label="Cockpit briefing carousel" hidden>
-      <section id="cockpit-route" class="cockpit-route-card" aria-label="Estimated flight plan" hidden>
+    <aside id="cockpit-signal-stream" class="cockpit-signal-window" aria-label="Carousel" hidden>
+      <section id="cockpit-route" class="cockpit-route-card" aria-label="Plan de Vuelo Estimado" hidden>
         <div class="cockpit-route-heading">
           <span class="cockpit-route-kicker">PLAN DE VUELO ESTIMADO</span>
           <small id="cockpit-route-status">DATOS DE RUTA NO DISPONIBLES</small>
@@ -377,7 +377,7 @@
     <div class="pp-toggle-group">
       <button class="pp-toggle-btn" id="detection-toggle" title="Capa de Detección (D)" aria-label="Detection overlay" aria-pressed="false">
         <span class="pp-icon">&#x25A3;</span>
-        <span class="pp-label">DETECT</span>
+        <span class="pp-label">DETECTADO</span>
       </button>
       <div class="pp-slider-row detection-slider-row" id="detection-slider-row">
         <label class="pp-slider-mini-label" for="detection-density-slider">Densidad</label>
@@ -397,7 +397,7 @@
         <span class="pp-slider-value" id="detection-fade-value">7%</span>
       </div>
       <div class="pp-slider-row detection-opacity-row" id="detection-opacity-row">
-        <label class="pp-slider-mini-label" for="detection-opacity-slider">Outside</label>
+        <label class="pp-slider-mini-label" for="detection-opacity-slider">Afuera</label>
         <input type="range" class="pp-slider" id="detection-opacity-slider" min="0" max="100" step="1" value="1" aria-label="Detection opacity outside the keyhole" title="World-overlay label and card opacity beyond the fade distance" />
         <span class="pp-slider-value" id="detection-opacity-value">1%</span>
       </div>
@@ -624,14 +624,14 @@
           <div class="cctv-summary-label">CALIBRACIÓN</div>
           <button id="cctv-adjust-btn" class="scene-btn" title="Mueve la camara en el mundo: rueda los anillos, mueve las flechas, FOV">AJUSTAR</button>
         </div>
-        <div id="cctv-cal-readout" class="cctv-cal-readout" aria-label="Camera pose — click a value to type">
+        <div id="cctv-cal-readout" class="cctv-cal-readout" aria-label="Pose de Camara — click en el valor para tipear">
           <button class="cctv-cal-value" data-cal-field="heading" title="Heading (compass °)">HDG --</button>
           <button class="cctv-cal-value" data-cal-field="pitch" title="Pitch (° up/down)">PITCH --</button>
           <button class="cctv-cal-value" data-cal-field="fov" title="Horizontal FOV (°)">FOV --</button>
-          <button class="cctv-cal-value" data-cal-field="range" title="Range / monitor-plane distance (m)">RANGE --</button>
-          <button class="cctv-cal-value" data-cal-field="height" title="Mount height above ground (m)">HGT --</button>
-          <button class="cctv-cal-value" data-cal-field="north" title="North offset from catalog position (m)">ΔN --</button>
-          <button class="cctv-cal-value" data-cal-field="east" title="East offset from catalog position (m) ">ΔE --</button>
+          <button class="cctv-cal-value" data-cal-field="range" title="Rango / pLano distancia (m)">RANGO --</button>
+          <button class="cctv-cal-value" data-cal-field="height" title="Altura de Montaje sobre el suelo (m)">HGT --</button>
+          <button class="cctv-cal-value" data-cal-field="north" title="Desplazamiento hacia el Norte respecto a la posicion de catalogo(m)">ΔN --</button>
+          <button class="cctv-cal-value" data-cal-field="east" title="Desplazamiento hacia el Este respecto a la posicion de catalogo(m) ">ΔE --</button>
         </div>
         <div class="cctv-controls cctv-calibration-actions">
           <button id="cctv-calib-save-btn" class="scene-btn">GUARDAR CALIBRACION</button>
@@ -650,16 +650,16 @@
       <div class="panel-header">
         <span class="panel-title">SCENES</span>
         <span class="panel-divider"></span>
-        <button class="panel-collapse-btn" data-collapse-target="scene-panel" title="Collapse panel">+</button>
+        <button class="panel-collapse-btn" data-collapse-target="scene-panel" title="Collapsar panel">+</button>
       </div>
       <div class="scene-controls">
         <select id="scene-select" aria-label="Scene recipe"></select>
-        <button id="scene-new-btn" class="scene-btn">NEW</button>
-        <button id="scene-delete-btn" class="scene-btn scene-btn-danger">DEL</button>
+        <button id="scene-new-btn" class="scene-btn">NUEVA</button>
+        <button id="scene-delete-btn" class="scene-btn scene-btn-danger">BORRAR</button>
       </div>
       <div class="scene-controls">
-        <button id="scene-capture-btn" class="scene-btn">CAPTURE SHOT</button>
-        <button id="scene-update-shot-btn" class="scene-btn">UPDATE SHOT</button>
+        <button id="scene-capture-btn" class="scene-btn">CAPTURAR FOTO</button>
+        <button id="scene-update-shot-btn" class="scene-btn">ACTUALIZAR FOTO</button>
       </div>
       <div id="scene-shot-list" class="scene-shot-list"></div>
       <div class="scene-controls">
@@ -668,15 +668,15 @@
         <button id="scene-next-btn" class="scene-btn">NEXT</button>
       </div>
       <div class="scene-controls">
-        <button id="scene-export-btn" class="scene-btn">EXPORT PRESETS</button>
-        <button id="scene-import-btn" class="scene-btn">IMPORT</button>
-        <button id="scene-download-btn" class="scene-btn">RUN LOG</button>
+        <button id="scene-export-btn" class="scene-btn">EXPORTAR CONF</button>
+        <button id="scene-import-btn" class="scene-btn">IMPORTAR</button>
+        <button id="scene-download-btn" class="scene-btn">Correr LOG</button>
         <input type="file" id="scene-import-file" accept="application/json,.json" hidden />
       </div>
       <div class="scene-progress">
         <div id="scene-progress-fill">0%</div>
       </div>
-      <div id="scene-status">Ready</div>
+      <div id="scene-status">Listo</div>
     </div>
   </div>
 
@@ -688,7 +688,7 @@
       <div class="panel-glow"></div>
       <div class="global-context-panel-inner">
         <div class="panel-header">
-          <span class="panel-title">CONTEXT</span>
+          <span class="panel-title">CONTEXTO</span>
           <span class="panel-divider"></span>
           <div id="context-radio-dock" class="context-radio-dock">
             <button id="context-radio-toggle-btn" class="context-radio-toggle" type="button" aria-expanded="false" aria-controls="context-radio-mini" aria-label="Open compact Radio controls" title="Open compact Radio controls">
@@ -733,22 +733,22 @@
           </button>
         </div>
         <div id="context-mode-standby" class="context-mode-standby">
-          <strong>SELECT CONTEXT</strong>
-          <span>CONTACTS — nearest planes · vessels · sites<br>SPACE MISSIONS — launches &amp; orbital assets</span>
+          <strong>SELECCIONAR CONTEXTO</strong>
+          <span>CONTACTOS — aviones · barcos · lugares<br>MISIONES ESPACIALES— Lanzamientos &amp; orbital assets</span>
         </div>
         <section id="context-flights-view" class="context-mode-view" role="tabpanel" aria-labelledby="global-context-flights-btn" hidden>
           <div class="global-context-actions" aria-label="Contact Context actions">
             <button id="cockpit-entry" type="button" hidden>
               <span class="material-symbols-outlined" aria-hidden="true">flight</span>
-              <span>COCKPIT</span>
+              <span>CABINA</span>
             </button>
             <button id="installations-search-btn" class="panel-layer-toggle" type="button">SEARCH NEARBY SITES</button>
             <button id="tr3b-toggle" class="tr3b-toggle" type="button" aria-pressed="false" hidden aria-label="Reclassify tracked contact as TR-3B" title="Reclassify as TR-3B">🛸</button>
           </div>
           <aside id="military-awareness-panel">
             <div class="military-awareness-standby">
-              <strong>CONTACTS CONTEXT OFF</strong>
-              <span>SELECT CONTACTS TO LOAD OBSERVED / MAPPED PROXIMITY</span>
+              <strong>CONTACTOS SIN CONTEXTO</strong>
+              <span>SELECCIONAR CONTACTOS PARA CARGAR OBS. / PROXIMIDAD mapeada</span>
             </div>
           </aside>
         </section>
@@ -757,7 +757,7 @@
             <div id="space-mission-roster" class="space-mission-roster" aria-label="Available Space Missions">
               <div class="space-mission-roster-header">
                 <div>
-                  <strong>AVAILABLE MISSIONS</strong>
+                  <strong>MISIONES DISPONIBLES</strong>
                   <span>SELECT A MISSION TO INSPECT</span>
                 </div>
                 <output data-mission-roster-count>—</output>
