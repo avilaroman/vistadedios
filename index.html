@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,33 +17,33 @@
   <div id="world-overlay-root" aria-hidden="true">
     <canvas id="world-overlay-canvas"></canvas>
   </div>
-  <div id="world-overlay-actions" class="world-overlay-accessibility" role="region" aria-label="Visible map targets">
+  <div id="world-overlay-actions" class="world-overlay-accessibility" role="region" aria-label="Objetivos visibles en el mapa">
     <div id="world-overlay-action-list"></div>
     <div id="world-overlay-status" role="status" aria-live="polite" aria-atomic="true"></div>
   </div>
 
-  <!-- Title -->
+  <!-- Título -->
   <div id="title-bar">
     <div class="title-glow"></div>
     <h1><span class="title-logo brand-logo" data-logo-gaze data-logo-src="/logo.svg" aria-hidden="true"><img src="/logo.svg" alt="" /></span> <span>VISTA de<span class="title-accent">DIOS</span></span></h1>
     <p class="subtitle">Datos Públicos Abiertos</p>
   </div>
 
-  <!-- Style indicator -->
+  <!-- Indicador de estilo -->
   <div id="style-indicator">
     <span class="indicator-label">Estilo Activo</span>
     <span class="indicator-value" id="active-style-name">NORMAL</span>
   </div>
 
-  <!-- Top-center camera and share actions -->
-  <nav id="top-center-actions" aria-label="Globe actions">
-    <button id="clear-selected-layers" type="button" aria-label="Clear selected data layers" title="Turn off all selected data layers">
+  <!-- Acciones de cámara y compartir en el centro superior -->
+  <nav id="top-center-actions" aria-label="Acciones del Globo">
+    <button id="clear-selected-layers" type="button" aria-label="Limpiar capas de datos seleccionadas" title="Desactivar todas las capas de datos seleccionadas">
       <span class="material-symbols-outlined" aria-hidden="true">layers_clear</span>
     </button>
-    <button id="share-btn" type="button" aria-label="Copy share link" title="Copy share link">
+    <button id="share-btn" type="button" aria-label="Copiar enlace compartido" title="Copiar enlace compartido">
       <span class="share-icon" aria-hidden="true">&#x1F517;</span>
     </button>
-    <button id="reset-globe-view" type="button" aria-label="Reset to full globe view" title="Reset camera and return to full globe view">
+    <button id="reset-globe-view" type="button" aria-label="Restablecer a vista de globo completa" title="Restablecer cámara y volver a la vista de globo completa">
       <span class="material-symbols-outlined" aria-hidden="true">public</span>
     </button>
   </nav>
@@ -56,20 +56,20 @@
     <span id="traffic-sync-progress">0%</span>
   </div>
   <div id="cctv-sync-chip" aria-live="polite">
-    <span id="cctv-sync-label">cargando frames</span>
+    <span id="cctv-sync-label">cargando fotogramas</span>
     <span id="cctv-sync-progress">0/0</span>
   </div>
 
-  <!-- Toast notification -->
+  <!-- Notificación de tostada -->
   <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-  <!-- Safe frame guides for recording composition -->
+  <!-- Guías de marco seguro para grabación de composición -->
   <div id="safe-frame-overlay">
     <div id="safe-frame-box"></div>
   </div>
 
-  <!-- Aircraft first-person view. It can be entered from the visible view switcher. -->
-  <section id="cockpit-hud" aria-label="Aircraft cockpit view" hidden>
+  <!-- Vista en primera persona de la aeronave. Se puede ingresar desde el selector de vista visible. -->
+  <section id="cockpit-hud" aria-label="Vista de cabina de pilotaje de aeronave" hidden>
     <div class="cockpit-visor-shell" aria-hidden="true">
       <div class="cockpit-roll-arc">
         <span style="--slot:-3;--depth:3">−30</span>
@@ -89,14 +89,14 @@
       <div class="cockpit-horizon-guide">
         <span></span><small>NIVEL</small><span></span>
       </div>
-      <div id="cockpit-route-direction" class="cockpit-route-direction" hidden aria-label="Estimated destination direction">
+      <div id="cockpit-route-direction" class="cockpit-route-direction" hidden aria-label="Dirección de destino estimada">
         <svg class="cockpit-route-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M12 2 4.58 19.93c-.34.83.51 1.63 1.31 1.27L12 18.47l6.11 2.73c.8.36 1.65-.44 1.31-1.27L12 2Z" />
         </svg>
         <small id="cockpit-route-direction-label">DEST ---°</small>
       </div>
-      <div class="cockpit-visor-status cockpit-visor-status-left">PLANO OPTICO · 01</div>
-      <div class="cockpit-visor-status cockpit-visor-status-right">VISOR LOCK · ACTIVO</div>
+      <div class="cockpit-visor-status cockpit-visor-status-left">PLANO ÓPTICO · 01</div>
+      <div class="cockpit-visor-status cockpit-visor-status-right">VISOR BLOQUEADO · ACTIVO</div>
     </div>
     <div id="cockpit-speed-rim" class="cockpit-altitude-rim cockpit-speed-rim">
       <span class="cockpit-altitude-rim-label">VELOCIDAD EN TIERRA · NUDOS KTS</span>
@@ -140,25 +140,25 @@
       <div>
         <span class="cockpit-kicker">PRIMERA PERSONA</span>
         <strong id="cockpit-callsign">AERONAVE</strong>
-        <span id="cockpit-aircraft-meta" class="cockpit-aircraft-meta">LIVE TRACK · CURSO ALINEADO</span>
+        <span id="cockpit-aircraft-meta" class="cockpit-aircraft-meta">SEGUIMIENTO EN VIVO · RUMBO ALINEADO</span>
       </div>
-      <div class="cockpit-vision-controls" role="group" aria-label="Cockpit vision style">
-        <button id="cockpit-vision-previous" class="cockpit-vision-nav" type="button" aria-label="Previous cockpit vision style" title="Previous vision style">
+      <div class="cockpit-vision-controls" role="group" aria-label="Estilo de visión de cabina">
+        <button id="cockpit-vision-previous" class="cockpit-vision-nav" type="button" aria-label="Estilo de visión de cabina anterior" title="Estilo anterior">
           <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
           <small>ANT</small>
         </button>
-        <button id="cockpit-vision-current" class="cockpit-vision-current" type="button" data-cockpit-vision="optical" aria-label="Current cockpit vision style: NORMAL. Activate for next style." title="Current style: NORMAL — click for next">
+        <button id="cockpit-vision-current" class="cockpit-vision-current" type="button" data-cockpit-vision="optical" aria-label="Estilo de visión de cabina actual: NORMAL. Activar para siguiente estilo." title="Estilo actual: NORMAL — haz clic para siguiente">
           <small>ACTUAL</small>
           <strong id="cockpit-vision-current-label" aria-live="polite">NORMAL</strong>
         </button>
-        <button id="cockpit-vision-next" class="cockpit-vision-nav" type="button" aria-label="Next cockpit vision style" title="Next vision style">
+        <button id="cockpit-vision-next" class="cockpit-vision-nav" type="button" aria-label="Siguiente estilo de visión de cabina" title="Siguiente estilo de visión">
           <small>PROX</small>
           <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
         </button>
       </div>
     </div>
     <div class="cockpit-reticle material-symbols-outlined" aria-hidden="true">my_location</div>
-    <div class="cockpit-compass" aria-label="Current aircraft heading">
+    <div class="cockpit-compass" aria-label="Rumbo actual de la aeronave">
       <div class="cockpit-instrument-row">
         <div class="cockpit-readout cockpit-speed">
           <span class="cockpit-readout-label">VELOCIDAD EN TIERRA</span>
@@ -179,35 +179,35 @@
       <span id="cockpit-clock">--:--:--Z</span>
       <span id="cockpit-position">--° · --°</span>
     </div>
-    <aside id="cockpit-context" class="cockpit-context-window" aria-label="Contact cockpit summary" hidden>
+    <aside id="cockpit-context" class="cockpit-context-window" aria-label="Resumen de contacto de cabina" hidden>
       <header class="cockpit-context-header">
         <div>
           <span class="cockpit-context-kicker">CONTACTOS</span>
           <strong id="cockpit-context-subject">CONTACTOS · 250 KM</strong>
         </div>
-        <nav class="cockpit-context-actions" aria-label="Contact navigation">
-          <button id="cockpit-context-previous" type="button" aria-label="Previous — prior visited contact in the 250 km window" title="Previous — prior visited contact in the 250 km window">
+        <nav class="cockpit-context-actions" aria-label="Navegación de contacto">
+          <button id="cockpit-context-previous" type="button" aria-label="Anterior — contacto visitado anteriormente en la ventana de 250 km" title="Anterior — contacto visitado anteriormente en la ventana de 250 km">
             <span class="material-symbols-outlined" aria-hidden="true">skip_previous</span>
           </button>
-          <button id="cockpit-context-next" type="button" aria-label="Next — nearest unvisited contact in the 250 km window" title="Next — nearest unvisited contact in the 250 km window">
+          <button id="cockpit-context-next" type="button" aria-label="Siguiente — contacto no visitado más cercano en la ventana de 250 km" title="Siguiente — contacto no visitado más cercano en la ventana de 250 km">
             <span class="material-symbols-outlined" aria-hidden="true">skip_next</span>
           </button>
-          <button id="cockpit-context-toggle" type="button" aria-label="Collapse Contact panel" aria-expanded="true" title="Collapse contact panel">
+          <button id="cockpit-context-toggle" type="button" aria-label="Contraer panel de Contacto" aria-expanded="true" title="Contraer panel de contacto">
             <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
           </button>
         </nav>
-        <span class="cockpit-context-qualifier">CONTEXTO SOLO</span>
+        <span class="cockpit-context-qualifier">SOLO CONTEXTO</span>
       </header>
-      <div class="cockpit-context-cohorts" role="list" aria-label="Nearby cohort counts">
+      <div class="cockpit-context-cohorts" role="list" aria-label="Conteos de cohortes cercanas">
         <div role="listitem" data-context-cohort="flights"><span>FLT</span><strong>—</strong><small>OpenSky</small></div>
         <div role="listitem" data-context-cohort="military"><span>MIL</span><strong>—</strong><small>adsb.lol</small></div>
         <div role="listitem" data-context-cohort="ais-live-vessels"><span>AIS</span><strong>—</strong><small>AISStream</small></div>
-        <div role="listitem" data-context-cohort="military-installations"><span>SITE</span><strong>—</strong><small>OpenStreetMap</small></div>
+        <div role="listitem" data-context-cohort="military-installations"><span>SITIO</span><strong>—</strong><small>OpenStreetMap</small></div>
       </div>
       <div class="cockpit-context-nearest">
         <span id="cockpit-context-direction" class="material-symbols-outlined" aria-hidden="true">navigation</span>
         <div>
-          <small>MAS CERCANO OBSERVADO / MAPEADO</small>
+          <small>MÁS CERCANO OBSERVADO / MAPEADO</small>
           <strong id="cockpit-context-nearest-label">EJEMPLO NO DISPONIBLE</strong>
         </div>
         <span id="cockpit-context-bearing">—</span>
@@ -219,9 +219,9 @@
           id="cockpit-weather-toggle"
           class="cockpit-context-weather"
           type="button"
-          aria-label="Efectos Meteorologicos"
+          aria-label="Efectos Meteorológicos"
           aria-pressed="false"
-          title="Activar Meteorologico"
+          title="Activar Meteorológico"
         >
           <span>WX</span>
           <strong id="cockpit-weather-state">OFF</strong>
@@ -229,7 +229,7 @@
         <time id="cockpit-context-updated">--:--:--Z</time>
       </footer>
     </aside>
-    <aside id="cockpit-signal-stream" class="cockpit-signal-window" aria-label="Carousel" hidden>
+    <aside id="cockpit-signal-stream" class="cockpit-signal-window" aria-label="Carrusel" hidden>
       <section id="cockpit-route" class="cockpit-route-card" aria-label="Plan de Vuelo Estimado" hidden>
         <div class="cockpit-route-heading">
           <span class="cockpit-route-kicker">PLAN DE VUELO ESTIMADO</span>
@@ -249,15 +249,15 @@
       </section>
       <header class="cockpit-signal-header">
         <div class="cockpit-brief-heading">
-          <span id="cockpit-brief-kicker" class="cockpit-signal-kicker"><i aria-hidden="true"></i> LIVE SIGNALS</span>
+          <span id="cockpit-brief-kicker" class="cockpit-signal-kicker"><i aria-hidden="true"></i> SEÑALES EN VIVO</span>
           <strong id="cockpit-brief-subtitle">OBSERVADO / MAPEADO </strong>
         </div>
-        <nav class="cockpit-brief-actions" aria-label="Cockpit briefing controls">
-          <button id="cockpit-brief-previous" type="button" aria-label="Anterior" title="Anterior Pag">
+        <nav class="cockpit-brief-actions" aria-label="Controles de información de cabina">
+          <button id="cockpit-brief-previous" type="button" aria-label="Anterior" title="Página Anterior">
             <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
           </button>
           <span id="cockpit-brief-position" aria-live="polite">1 / 3</span>
-          <button id="cockpit-brief-next" type="button" aria-label="Siguiente" title="Siguiente Pag">
+          <button id="cockpit-brief-next" type="button" aria-label="Siguiente" title="Siguiente Página">
             <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
           </button>
           <button
@@ -265,24 +265,24 @@
             type="button"
             aria-label="CICLO OFF"
             aria-pressed="false"
-            title="Ciclo automatico cada 9 segundos (Signals → News → Local). Pausa mientras estas en el panel. Live signal data refresca continuamente."
+            title="Ciclo automático cada 9 segundos (Señales → Noticias → Local). Pausa mientras estés en el panel. Los datos de señales en vivo se actualizan continuamente."
           >CICLO OFF</button>
-          <button id="cockpit-signal-toggle" type="button" aria-label="Collapse cockpit briefing panel" aria-expanded="true" title="Collapse briefing panel">
+          <button id="cockpit-signal-toggle" type="button" aria-label="Contraer panel de información de cabina" aria-expanded="true" title="Contraer panel de información">
             <span class="material-symbols-outlined" aria-hidden="true">right_panel_close</span>
           </button>
         </nav>
       </header>
       <div class="cockpit-brief-stage">
-        <section data-cockpit-brief-page="signals" aria-label="Live signals">
+        <section data-cockpit-brief-page="signals" aria-label="Señales en vivo">
           <ol id="cockpit-signal-list" class="cockpit-signal-list" aria-live="polite"></ol>
         </section>
-        <section data-cockpit-brief-page="news" aria-label="Latest regional news" hidden>
+        <section data-cockpit-brief-page="news" aria-label="Últimas noticias regionales" hidden>
           <div id="cockpit-news-status" class="cockpit-brief-status">ADQUIRIENDO NOTICIAS REGIONALES</div>
           <ol id="cockpit-news-list" class="cockpit-news-list" aria-live="polite"></ol>
         </section>
-        <section data-cockpit-brief-page="local" aria-label="Location-based information" hidden>
+        <section data-cockpit-brief-page="local" aria-label="Información basada en ubicación" hidden>
           <div class="cockpit-local-place">
-            <strong id="cockpit-local-place">RESOLVIENDO REGION</strong>
+            <strong id="cockpit-local-place">RESOLVIENDO REGIÓN</strong>
             <small id="cockpit-local-coordinates">--</small>
           </div>
           <div class="cockpit-local-grid">
@@ -295,9 +295,9 @@
         </section>
       </div>
       <footer class="cockpit-signal-footer">
-        <span id="cockpit-brief-source">EVENTOS · SIN NOTICIAS Sinteticas</span>
-        <nav class="cockpit-brief-tabs" aria-label="Cockpit briefing pages">
-          <button type="button" data-cockpit-brief-index="0" aria-label="live" aria-current="true">live</button>
+        <span id="cockpit-brief-source">EVENTOS · SIN NOTICIAS Sintéticas</span>
+        <nav class="cockpit-brief-tabs" aria-label="Páginas de información de cabina">
+          <button type="button" data-cockpit-brief-index="0" aria-label="en vivo" aria-current="true">en vivo</button>
           <button type="button" data-cockpit-brief-index="1" aria-label="Noticias">NOTICIAS</button>
           <button type="button" data-cockpit-brief-index="2" aria-label="Local">LOCAL</button>
         </nav>
@@ -306,11 +306,11 @@
     <aside id="cockpit-utility-controls" class="cockpit-utility-controls" aria-label="Controles de Radio">
       <div class="cockpit-utility-control">
         <div class="cockpit-utility-launcher" data-cockpit-launcher="display">
-          <span>DISPLAY</span>
+          <span>PANTALLA</span>
           <span class="cockpit-utility-divider" aria-hidden="true"></span>
-          <button id="cockpit-display-toggle-btn" class="cockpit-utility-glyph" type="button" aria-expanded="false" aria-controls="cockpit-display-panel" aria-label="Expand Cockpit display options" title="Expand Cockpit display options">◀</button>
+          <button id="cockpit-display-toggle-btn" class="cockpit-utility-glyph" type="button" aria-expanded="false" aria-controls="cockpit-display-panel" aria-label="Expandir opciones de pantalla de cabina" title="Expandir opciones de pantalla de cabina">◀</button>
         </div>
-        <div id="cockpit-display-panel" class="cockpit-utility-popover" role="group" aria-label="Cockpit display options" hidden>
+        <div id="cockpit-display-panel" class="cockpit-utility-popover" role="group" aria-label="Opciones de pantalla de cabina" hidden>
           <div class="cockpit-display-slot" data-cockpit-display-slot="hud"></div>
           <div class="cockpit-display-slot" data-cockpit-display-slot="detection"></div>
           <div class="cockpit-display-slot" data-cockpit-display-slot="parameters"></div>
@@ -321,53 +321,53 @@
         <div class="cockpit-utility-launcher" data-cockpit-launcher="radio">
           <span>RADIO</span>
           <span class="cockpit-utility-divider" aria-hidden="true"></span>
-          <button id="cockpit-radio-toggle-btn" class="cockpit-utility-glyph" type="button" aria-expanded="false" aria-controls="cockpit-radio-panel" aria-label="Expand Cockpit Radio controls" title="Expand Cockpit Radio controls">◀</button>
+          <button id="cockpit-radio-toggle-btn" class="cockpit-utility-glyph" type="button" aria-expanded="false" aria-controls="cockpit-radio-panel" aria-label="Expandir controles de Radio de cabina" title="Expandir controles de Radio de cabina">◀</button>
         </div>
-        <div id="cockpit-radio-panel" class="cockpit-utility-popover cockpit-radio-compact" role="group" aria-label="Cockpit compact Radio controls" hidden>
+        <div id="cockpit-radio-panel" class="cockpit-utility-popover cockpit-radio-compact" role="group" aria-label="Controles de Radio compactos de cabina" hidden>
           <strong id="cockpit-radio-station" class="cockpit-radio-station">LISTO</strong>
           <button id="cockpit-radio-enable-btn" class="panel-layer-toggle" type="button" aria-pressed="false">ACTIVADO</button>
           <div class="cockpit-radio-transport">
-            <button id="cockpit-radio-prev-btn" type="button" aria-label="Prev" disabled>◀◀</button>
-            <button id="cockpit-radio-play-btn" type="button" aria-label="Play" disabled>▶</button>
-            <button id="cockpit-radio-next-btn" type="button" aria-label="Next" disabled>▶▶</button>
+            <button id="cockpit-radio-prev-btn" type="button" aria-label="Anterior" disabled>◀◀</button>
+            <button id="cockpit-radio-play-btn" type="button" aria-label="Reproducir" disabled>▶</button>
+            <button id="cockpit-radio-next-btn" type="button" aria-label="Siguiente" disabled>▶▶</button>
           </div>
           <label class="cockpit-radio-volume" for="cockpit-radio-volume">
             <span>VOLUMEN</span>
-            <input id="cockpit-radio-volume" class="gev-quantitative-slider" type="range" min="0" max="100" value="80" aria-label="Cockpit Radio volume" disabled />
+            <input id="cockpit-radio-volume" class="gev-quantitative-slider" type="range" min="0" max="100" value="80" aria-label="Volumen de Radio de cabina" disabled />
             <output id="cockpit-radio-volume-value" class="gev-slider-value" for="cockpit-radio-volume">80%</output>
           </label>
         </div>
       </div>
     </aside>
-    <div class="cockpit-help">ESC EXIT <span>·</span> C TOGGLE</div>
+    <div class="cockpit-help">ESC SALIR <span>·</span> C ALTERNAR</div>
   </section>
 
-  <nav id="view-switcher" aria-label="View switcher">
-    <button id="cockpit-reset-globe" type="button" aria-label="Reset cockpit to full globe view" title="Exit cockpit and return to full globe view" hidden>
+  <nav id="view-switcher" aria-label="Selector de vista">
+    <button id="cockpit-reset-globe" type="button" aria-label="Restablecer cabina a vista de globo completa" title="Salir de la vista de cabina y volver a la vista de globo completa" hidden>
       <span class="material-symbols-outlined" aria-hidden="true">public</span>
-      <span>RESET</span>
+      <span>RESTABLECER</span>
     </button>
-    <button id="map-view-switch" type="button" aria-label="Exit cockpit view" aria-keyshortcuts="Escape C" title="Exit cockpit view" hidden>
+    <button id="map-view-switch" type="button" aria-label="Salir de la vista de cabina" aria-keyshortcuts="Escape C" title="Salir de la vista de cabina" hidden>
       <span class="material-symbols-outlined" aria-hidden="true">close_fullscreen</span>
-      <span>SALIR COCKPIT</span>
+      <span>SALIR CABINA</span>
     </button>
   </nav>
 
-  <!-- Post-processing toggles (top-right) -->
+  <!-- Alternancias de postprocesamiento (arriba a la derecha) -->
   <div id="pp-toggles" class="panel-collapsible collapsed" data-panel-id="pp-toggles">
     <div class="compact pp-header-row">
-      <span class="pp-header-label">DISPLAY</span>
+      <span class="pp-header-label">PANTALLA</span>
       <span class="panel-divider" aria-hidden="true"></span>
-      <button class="panel-collapse-btn pp-collapse-btn" data-collapse-target="pp-toggles" title="Collapse panel">&#x25C0;</button>
+      <button class="panel-collapse-btn pp-collapse-btn" data-collapse-target="pp-toggles" title="Contraer panel">&#x25C0;</button>
     </div>
     <div class="pp-toggle-group">
-      <button class="pp-toggle-btn" id="hud-toggle" title="Intelligence HUD (H)">
+      <button class="pp-toggle-btn" id="hud-toggle" title="HUD de Inteligencia (H)">
         <span class="pp-icon">&#x25CE;</span>
         <span class="pp-label">HUD</span>
       </button>
       <div class="pp-slider-row" id="hud-layout-row">
-        <span class="pp-slider-mini-label">Layout</span>
-        <select id="hud-layout-select" class="pp-select" aria-label="HUD layout">
+        <span class="pp-slider-mini-label">Diseño</span>
+        <select id="hud-layout-select" class="pp-select" aria-label="Diseño de HUD">
           <option value="tactical">Táctico</option>
           <option value="operator">Operador</option>
           <option value="minimal">Mínimo</option>
@@ -375,87 +375,86 @@
       </div>
     </div>
     <div class="pp-toggle-group">
-      <button class="pp-toggle-btn" id="detection-toggle" title="Capa de Detección (D)" aria-label="Detection overlay" aria-pressed="false">
+      <button class="pp-toggle-btn" id="detection-toggle" title="Capa de Detección (D)" aria-label="Superposición de detección" aria-pressed="false">
         <span class="pp-icon">&#x25A3;</span>
         <span class="pp-label">DETECTADO</span>
       </button>
       <div class="pp-slider-row detection-slider-row" id="detection-slider-row">
         <label class="pp-slider-mini-label" for="detection-density-slider">Densidad</label>
-        <input type="range" class="pp-slider" id="detection-density-slider" min="0" max="100" step="25" value="50" aria-label="Detection label density" />
+        <input type="range" class="pp-slider" id="detection-density-slider" min="0" max="100" step="25" value="50" aria-label="Densidad de etiqueta de detección" />
         <span class="pp-slider-value" id="detection-density-value">50%</span>
       </div>
       <div class="pp-slider-row detection-allocation-row" id="detection-allocation-row">
         <span class="pp-slider-mini-label">Colocación</span>
-        <div class="pp-mode-seg detection-allocation-seg" role="radiogroup" aria-label="Detection label allocation">
+        <div class="pp-mode-seg detection-allocation-seg" role="radiogroup" aria-label="Asignación de etiqueta de detección">
           <button class="pp-mode-btn active" id="detection-allocation-elastic" data-allocation="ELASTIC" role="radio" aria-checked="true">Elástico</button>
           <button class="pp-mode-btn" id="detection-allocation-weighted" data-allocation="WEIGHTED" role="radio" aria-checked="false">Balanceo</button>
         </div>
       </div>
       <div class="pp-slider-row detection-fade-row" id="detection-fade-row">
-        <label class="pp-slider-mini-label" for="detection-fade-slider">Fade</label>
-        <input type="range" class="pp-slider" id="detection-fade-slider" min="0" max="40" step="1" value="7" aria-label="Detection fade distance" title="World-overlay fade distance outside the keyhole as a percentage of its radius" />
+        <label class="pp-slider-mini-label" for="detection-fade-slider">Desvanecimiento</label>
+        <input type="range" class="pp-slider" id="detection-fade-slider" min="0" max="40" step="1" value="7" aria-label="Distancia de desvanecimiento de detección" title="Distancia de desvanecimiento de superposición mundial fuera del ojo de la cerradura como porcentaje de su radio" />
         <span class="pp-slider-value" id="detection-fade-value">7%</span>
       </div>
       <div class="pp-slider-row detection-opacity-row" id="detection-opacity-row">
         <label class="pp-slider-mini-label" for="detection-opacity-slider">Afuera</label>
-        <input type="range" class="pp-slider" id="detection-opacity-slider" min="0" max="100" step="1" value="1" aria-label="Detection opacity outside the keyhole" title="World-overlay label and card opacity beyond the fade distance" />
+        <input type="range" class="pp-slider" id="detection-opacity-slider" min="0" max="100" step="1" value="1" aria-label="Opacidad de detección fuera del ojo de la cerradura" title="Opacidad de etiqueta de superposición mundial y tarjeta más allá de la distancia de desvanecimiento" />
         <span class="pp-slider-value" id="detection-opacity-value">1%</span>
       </div>
     </div>
-    <!-- The one shared preset-parameter surface is inserted here at runtime. -->
+    <!-- La única superficie de parámetro preestablecida compartida se inserta aquí en tiempo de ejecución. -->
     <div id="param-slider-panel">
       <div class="param-panel-header">
-        <span class="param-panel-title">PARAMETROS</span>
+        <span class="param-panel-title">PARÁMETROS</span>
         <span class="param-panel-divider"></span>
-        <button class="panel-collapse-btn" id="param-panel-collapse-btn" data-collapse-target="param-slider-panel" title="Collapse panel">−</button>
+        <button class="panel-collapse-btn" id="param-panel-collapse-btn" data-collapse-target="param-slider-panel" title="Contraer panel">−</button>
       </div>
       <div id="param-sliders"></div>
     </div>
     <div class="pp-toggle-group">
-      <!-- 3D aircraft is DEFAULT-ON in Proximity (product invariant 2026-08-22), so the
-           button ships lit and the mode row ships open — the same markup-carries-the-default
-           convention as #scope-toggle. ui.js re-syncs both from durable layer state, which
-           is what flips them back for a share link or a stored session carrying 3D off. -->
-      <button class="pp-toggle-btn active" id="models3d-toggle" aria-pressed="true" title="3D aircraft — flat icons zoomed out, 3D models up close">
+      <!-- La aeronave 3D está ACTIVADA DE FORMA PREDETERMINADA en Proximidad (invariante de producto 2026-08-22), por lo que el
+           botón se envía iluminado y la fila de modo se envía abierta — la misma convención de marcado-lleva-el-predeterminado
+           como #scope-toggle. ui.js resincroniza ambos desde el estado de capa duradero, que
+           es lo que los voltea hacia atrás para un enlace compartido o una sesión almacenada con 3D desactivado. -->
+      <button class="pp-toggle-btn active" id="models3d-toggle" aria-pressed="true" title="Aeronave 3D — iconos planos alejados, modelos 3D de cerca">
         <span class="pp-icon">&#x2708;</span>
         <span class="pp-label">3D</span>
       </button>
       <div class="pp-slider-row visible" id="models3d-mode-row">
-        <span class="pp-slider-mini-label">Models</span>
-        <div class="pp-mode-seg" role="radiogroup" aria-label="3D model covertura">
+        <span class="pp-slider-mini-label">Modelos</span>
+        <div class="pp-mode-seg" role="radiogroup" aria-label="Cobertura de modelo 3D">
           <button class="pp-mode-btn active" id="models3d-mode-proximity" data-mode="proximity" role="radio" aria-checked="true">Proximidad</button>
           <button class="pp-mode-btn" id="models3d-mode-all" data-mode="all" role="radio" aria-checked="false">TODOS</button>
         </div>
       </div>
     </div>
     <div class="pp-toggle-group">
-      <button class="pp-toggle-btn active" id="scope-toggle" title="Scope — the circular viewport mask" aria-pressed="true">
+      <button class="pp-toggle-btn active" id="scope-toggle" title="Scope — la máscara de puerto de vista circular" aria-pressed="true">
         <span class="pp-icon material-symbols-outlined" aria-hidden="true">ajustar</span>
-        <span class="pp-label">Scope</span>
+        <span class="pp-label">Alcance</span>
       </button>
       <div class="pp-slider-row visible" id="scope-slider-row">
-        <span class="pp-slider-mini-label">Feather</span>
-        <!-- Feather starts at an 11% soft scope-mask edge (final value
-             2026-08-24, superseding the 08-22 hard-crop and 08-23 8% rulings);
-             mirrors SCOPE_FEATHER_RATIO_DEFAULT in src/scopeMask.js. Feather
-             softens the black mask edge; label fading is the separate Fade
-             slider. -->
-        <input type="range" class="pp-slider" id="scope-feather-slider" min="0" max="100" value="11" title="Scope edge feather as a percentage of the keyhole radius" />
+        <span class="pp-slider-mini-label">Suavizar</span>
+        <!-- Feather comienza en un borde de máscara de alcance suave del 11% (valor final
+             2026-08-24, reemplazando el recorte duro de 08-22 y la regla del 8% de 08-23);
+             espeja SCOPE_FEATHER_RATIO_DEFAULT en src/scopeMask.js. Feather
+             suaviza el borde de la máscara negra; el desvanecimiento de etiqueta es el deslizador de Desvanecimiento separado. -->
+        <input type="range" class="pp-slider" id="scope-feather-slider" min="0" max="100" value="11" title="Suavizado de borde de alcance como porcentaje del radio del ojo de la cerradura" />
         <span class="pp-slider-value" id="scope-feather-value">11%</span>
       </div>
     </div>
     <div class="pp-toggle-group">
-      <button class="pp-toggle-btn" id="celestial-toggle" title="Celestial ring — reveal the full globe" aria-pressed="false">
+      <button class="pp-toggle-btn" id="celestial-toggle" title="Anillo celestial — revelar el globo completo" aria-pressed="false">
         <span class="pp-icon material-symbols-outlined" aria-hidden="true">flare</span>
         <span class="pp-label">Celestial</span>
       </button>
     </div>
-    <button class="pp-toggle-btn" id="clean-view-toggle" title="Hide UI chrome">
+    <button class="pp-toggle-btn" id="clean-view-toggle" title="Ocultar interfaz de usuario">
       <span class="pp-icon">&#x25A1;</span>
       <span class="pp-label">UI LIMPIO</span>
     </button>
     <div class="pp-toggle-group">
-      <button class="pp-toggle-btn" id="bloom-toggle" title="Bloom / Glow">
+      <button class="pp-toggle-btn" id="bloom-toggle" title="Bloom / Brillo">
         <span class="pp-icon">&#x2728;</span>
         <span class="pp-label">Bloom</span>
       </button>
@@ -465,9 +464,9 @@
       </div>
     </div>
     <div class="pp-toggle-group">
-      <button class="pp-toggle-btn" id="sharpen-toggle" title="Sharpening">
+      <button class="pp-toggle-btn" id="sharpen-toggle" title="Enfoque">
         <span class="pp-icon">&#x1F50D;</span>
-        <span class="pp-label">Sharpen</span>
+        <span class="pp-label">Enfocar</span>
       </button>
       <div class="pp-slider-row" id="sharpen-slider-row">
         <input type="range" class="pp-slider" id="sharpen-intensity-slider" min="0" max="100" value="49" />
@@ -475,22 +474,22 @@
       </div>
     </div>
   </div>
-  <button id="clean-view-exit" title="Return UI controls">SALIR de VISTA LIMPIA</button>
+  <button id="clean-view-exit" title="Controles de interfaz de retorno">SALIR de VISTA LIMPIA</button>
 
-  <!-- Unified bottom command dock: locations, voice (injected at runtime), visual presets -->
-  <div id="command-dock" aria-label="Navigation, voice, and visual preset controls">
-  <!-- Control panel -->
+  <!-- Muelle de comando unificado en la parte inferior: ubicaciones, voz (inyectada en tiempo de ejecución), preajustes visuales -->
+  <div id="command-dock" aria-label="Navegación, voz y controles de preajuste visual">
+  <!-- Panel de control -->
   <div id="control-panel" class="panel-collapsible collapsed">
     <div class="panel-glow"></div>
     <div class="panel-inner">
       <button id="control-panel-toggle" class="panel-header dock-tray-toggle" type="button"
         data-dock-toggle-target="control-panel" aria-expanded="false"
-        aria-controls="control-panel-popover" aria-label="Expand Visual Presets">
+        aria-controls="control-panel-popover" aria-label="Expandir Preajustes Visuales">
         <span class="panel-title"><span class="dock-label-icon dock-label-icon-presets" aria-hidden="true"></span>Expandir CONF. VISUALES</span>
         <span class="panel-divider"></span>
       </button>
       <div id="control-panel-popover" class="dock-popover-content">
-      <button class="dock-pin-btn" data-pin-target="control-panel" type="button" aria-label="Pin visual presets" aria-pressed="false" title="Keep visual presets open"><img src="/pin.svg" alt="" /></button>
+      <button class="dock-pin-btn" data-pin-target="control-panel" type="button" aria-label="Fijar preajustes visuales" aria-pressed="false" title="Mantener preajustes visuales abiertos"><img src="/pin.svg" alt="" /></button>
       <div id="style-buttons" class="button-grid">
         <button class="style-btn active" data-style="normal">
           <span class="btn-icon">◯</span>
@@ -504,7 +503,7 @@
         </button>
         <button class="style-btn" data-style="surveillance">
           <span class="btn-icon">🌙</span>
-          <span class="btn-label">Vision Nocturna</span>
+          <span class="btn-label">Visión Nocturna</span>
           <span class="btn-key">3</span>
         </button>
         <button class="style-btn" data-style="thermal">
@@ -519,7 +518,7 @@
         </button>
         <button class="style-btn" data-style="noir">
           <span class="btn-icon">◐</span>
-          <span class="btn-label">Blanco&Negro</span>
+          <span class="btn-label">Blanco y Negro</span>
           <span class="btn-key">6</span>
         </button>
         <button class="style-btn" data-style="snow">
@@ -533,36 +532,36 @@
           <span id="map-source-label">FUENTE DE MAPAS</span>
           <span id="map-stack-status" class="pp-stack-status" aria-live="polite">3D</span>
         </div>
-        <div id="map-stack-chips" class="map-stack-chip-row" role="group" aria-label="Map source"></div>
+        <div id="map-stack-chips" class="map-stack-chip-row" role="group" aria-label="Fuente de mapa"></div>
       </section>
       </div>
       <div id="style-mini-status" class="panel-mini-status" aria-live="polite">
-        <span class="panel-mini-label">Style</span>
+        <span class="panel-mini-label">Estilo</span>
         <span id="style-mini-value" class="panel-mini-value">NORMAL</span>
       </div>
     </div>
   </div>
 
-  <!-- Location bar -->
+  <!-- Barra de ubicación -->
   <div id="location-bar" class="panel-collapsible collapsed">
     <div class="panel-glow"></div>
     <div class="location-inner">
       <div class="location-toolbar">
-        <span class="location-toolbar-label"><span class="dock-label-icon dock-label-icon-location" aria-hidden="true"></span>LOCATION</span>
-        <button class="panel-collapse-btn" data-collapse-target="location-bar" title="Collapse panel">+</button>
+        <span class="location-toolbar-label"><span class="dock-label-icon dock-label-icon-location" aria-hidden="true"></span>UBICACIÓN</span>
+        <button class="panel-collapse-btn" data-collapse-target="location-bar" title="Contraer panel">+</button>
       </div>
       <div id="location-mini-status" class="location-mini-status" aria-live="polite">
         <div id="location-mini-city" class="location-mini-city">📍 Lugar: --</div>
         <div id="location-mini-poi" class="location-mini-poi">Marca: --</div>
       </div>
       <div class="dock-popover-content">
-        <button class="dock-pin-btn" data-pin-target="location-bar" type="button" aria-label="Pin location tray" aria-pressed="false" title="Keep location tray open"><img src="/pin.svg" alt="" /></button>
+        <button class="dock-pin-btn" data-pin-target="location-bar" type="button" aria-label="Fijar bandeja de ubicación" aria-pressed="false" title="Mantener bandeja de ubicación abierta"><img src="/pin.svg" alt="" /></button>
         <div id="poi-row" class="poi-row-container"></div>
         <div class="location-bar-divider" id="location-bar-divider"></div>
         <div class="location-city-row">
           <div id="location-pills" class="location-pills"></div>
           <div class="location-search-wrap">
-            <button id="search-toggle" class="search-toggle-btn" title="Search any location">
+            <button id="search-toggle" class="search-toggle-btn" title="Buscar cualquier ubicación">
               <span>&#x1F50E;</span>
             </button>
             <input type="text" id="location-search" placeholder="Buscar cualquier dirección" autocomplete="off" spellcheck="false" />
@@ -574,46 +573,46 @@
   </div>
 
   <div id="left-panel-stack">
-  <!-- Data Layer Toggle Panel -->
+  <!-- Panel de alternancia de capas de datos -->
   <div id="data-panel" class="panel-collapsible collapsed active" data-panel-id="data-panel">
     <div class="panel-glow"></div>
     <div class="data-panel-inner">
       <div class="panel-header">
-        <span class="panel-title">DATA LAYERS</span>
+        <span class="panel-title">CAPAS DE DATOS</span>
         <span class="panel-divider"></span>
-        <button class="panel-collapse-btn" data-collapse-target="data-panel" title="Collapse panel">+</button>
+        <button class="panel-collapse-btn" data-collapse-target="data-panel" title="Contraer panel">+</button>
       </div>
       <div id="data-toggles" class="data-toggle-list"></div>
     </div>
   </div>
 
-  <!-- CCTV Coverage Panel -->
+  <!-- Panel de cobertura CCTV -->
   <div id="cctv-panel" class="panel-collapsible collapsed" data-panel-id="cctv-panel">
     <div class="panel-glow"></div>
     <div class="cctv-panel-inner">
       <div class="panel-header">
         <span class="panel-title">CCTV</span>
         <span class="panel-divider"></span>
-        <button class="panel-collapse-btn" data-collapse-target="cctv-panel" title="Collapse panel">+</button>
+        <button class="panel-collapse-btn" data-collapse-target="cctv-panel" title="Contraer panel">+</button>
       </div>
       <div id="cctv-frame-wrap" class="cctv-frame-wrap">
-        <img id="cctv-frame" alt="CCTV feed frame" />
+        <img id="cctv-frame" alt="Fotograma de alimentación CCTV" />
       </div>
-      <div id="cctv-source-badge" role="status" aria-live="polite">SOURCE · DESCONOCIDO</div>
-      <div id="cctv-meta">Activa CCTV para cargar las intersecciones de cameras</div>
+      <div id="cctv-source-badge" role="status" aria-live="polite">FUENTE · DESCONOCIDA</div>
+      <div id="cctv-meta">Activar CCTV para cargar las intersecciones de cámaras</div>
       <div class="cctv-controls">
         <button id="cctv-enable-btn" class="scene-btn">CCTV OFF</button>
-        <button id="cctv-nearest-btn" class="scene-btn">MAS CERCANA</button>
+        <button id="cctv-nearest-btn" class="scene-btn">MÁS CERCANA</button>
       </div>
       <div class="cctv-controls">
         <button id="cctv-prev-btn" class="scene-btn">Anterior</button>
-        <select id="cctv-camera-select" aria-label="CCTV camera"></select>
+        <select id="cctv-camera-select" aria-label="Cámara CCTV"></select>
         <button id="cctv-next-btn" class="scene-btn">Siguiente</button>
       </div>
       <div class="cctv-controls">
-        <button id="cctv-focus-btn" class="scene-btn">FOCUS</button>
-        <button id="cctv-coverage-btn" class="scene-btn">COVERAGE OFF</button>
-        <button id="cctv-auto-hop-btn" class="scene-btn">AUTO HOP OFF</button>
+        <button id="cctv-focus-btn" class="scene-btn">ENFOCAR</button>
+        <button id="cctv-coverage-btn" class="scene-btn">COBERTURA OFF</button>
+        <button id="cctv-auto-hop-btn" class="scene-btn">SALTO AUTO OFF</button>
       </div>
       <div class="cctv-controls">
         <button id="cctv-projection-btn" class="scene-btn">PROYECCIÓN ON</button>
@@ -622,38 +621,38 @@
       <div class="cctv-calibration-block">
         <div class="cctv-calibration-header">
           <div class="cctv-summary-label">CALIBRACIÓN</div>
-          <button id="cctv-adjust-btn" class="scene-btn" title="Mueve la camara en el mundo: rueda los anillos, mueve las flechas, FOV">AJUSTAR</button>
+          <button id="cctv-adjust-btn" class="scene-btn" title="Mueve la cámara en el mundo: rueda los anillos, mueve las flechas, FOV">AJUSTAR</button>
         </div>
-        <div id="cctv-cal-readout" class="cctv-cal-readout" aria-label="Pose de Camara — click en el valor para tipear">
-          <button class="cctv-cal-value" data-cal-field="heading" title="Heading (compass °)">HDG --</button>
-          <button class="cctv-cal-value" data-cal-field="pitch" title="Pitch (° up/down)">PITCH --</button>
-          <button class="cctv-cal-value" data-cal-field="fov" title="Horizontal FOV (°)">FOV --</button>
-          <button class="cctv-cal-value" data-cal-field="range" title="Rango / pLano distancia (m)">RANGO --</button>
-          <button class="cctv-cal-value" data-cal-field="height" title="Altura de Montaje sobre el suelo (m)">HGT --</button>
-          <button class="cctv-cal-value" data-cal-field="north" title="Desplazamiento hacia el Norte respecto a la posicion de catalogo(m)">ΔN --</button>
-          <button class="cctv-cal-value" data-cal-field="east" title="Desplazamiento hacia el Este respecto a la posicion de catalogo(m) ">ΔE --</button>
+        <div id="cctv-cal-readout" class="cctv-cal-readout" aria-label="Pose de Cámara — haz clic en el valor para escribir">
+          <button class="cctv-cal-value" data-cal-field="heading" title="Rumbo (brújula °)">HDG --</button>
+          <button class="cctv-cal-value" data-cal-field="pitch" title="Pitch (° arriba/abajo)">PITCH --</button>
+          <button class="cctv-cal-value" data-cal-field="fov" title="FOV horizontal (°)">FOV --</button>
+          <button class="cctv-cal-value" data-cal-field="range" title="Rango / distancia de plano (m)">RANGO --</button>
+          <button class="cctv-cal-value" data-cal-field="height" title="Altura de montaje sobre el suelo (m)">HGT --</button>
+          <button class="cctv-cal-value" data-cal-field="north" title="Desplazamiento hacia el norte respecto a la posición de catálogo (m)">ΔN --</button>
+          <button class="cctv-cal-value" data-cal-field="east" title="Desplazamiento hacia el este respecto a la posición de catálogo (m)">ΔE --</button>
         </div>
         <div class="cctv-controls cctv-calibration-actions">
-          <button id="cctv-calib-save-btn" class="scene-btn">GUARDAR CALIBRACION</button>
-          <button id="cctv-calib-reset-btn" class="scene-btn">RESET CALIBRACION</button>
+          <button id="cctv-calib-save-btn" class="scene-btn">GUARDAR CALIBRACIÓN</button>
+          <button id="cctv-calib-reset-btn" class="scene-btn">RESTABLECER CALIBRACIÓN</button>
         </div>
       </div>
       <div class="cctv-summary-label">SUMARIO de ESCENA</div>
-      <div id="cctv-summary">Activa CCTV para comenzar los sumarios de inteligencia.</div>
+      <div id="cctv-summary">Activar CCTV para comenzar los sumarios de inteligencia.</div>
     </div>
   </div>
 
-  <!-- Scene Director Panel -->
+  <!-- Panel de Director de Escena -->
   <div id="scene-panel" class="panel-collapsible collapsed" data-panel-id="scene-panel">
     <div class="panel-glow"></div>
     <div class="scene-panel-inner">
       <div class="panel-header">
-        <span class="panel-title">SCENES</span>
+        <span class="panel-title">ESCENAS</span>
         <span class="panel-divider"></span>
-        <button class="panel-collapse-btn" data-collapse-target="scene-panel" title="Collapsar panel">+</button>
+        <button class="panel-collapse-btn" data-collapse-target="scene-panel" title="Contraer panel">+</button>
       </div>
       <div class="scene-controls">
-        <select id="scene-select" aria-label="Scene recipe"></select>
+        <select id="scene-select" aria-label="Receta de escena"></select>
         <button id="scene-new-btn" class="scene-btn">NUEVA</button>
         <button id="scene-delete-btn" class="scene-btn scene-btn-danger">BORRAR</button>
       </div>
@@ -663,14 +662,14 @@
       </div>
       <div id="scene-shot-list" class="scene-shot-list"></div>
       <div class="scene-controls">
-        <button id="scene-start-btn" class="scene-btn">START</button>
-        <button id="scene-stop-btn" class="scene-btn scene-btn-danger">STOP</button>
-        <button id="scene-next-btn" class="scene-btn">NEXT</button>
+        <button id="scene-start-btn" class="scene-btn">INICIAR</button>
+        <button id="scene-stop-btn" class="scene-btn scene-btn-danger">DETENER</button>
+        <button id="scene-next-btn" class="scene-btn">SIGUIENTE</button>
       </div>
       <div class="scene-controls">
         <button id="scene-export-btn" class="scene-btn">EXPORTAR CONF</button>
         <button id="scene-import-btn" class="scene-btn">IMPORTAR</button>
-        <button id="scene-download-btn" class="scene-btn">Correr LOG</button>
+        <button id="scene-download-btn" class="scene-btn">Correr REGISTRO</button>
         <input type="file" id="scene-import-file" accept="application/json,.json" hidden />
       </div>
       <div class="scene-progress">
@@ -682,7 +681,7 @@
 
   </div>
 
-  <!-- Global Context is deliberately independent from the left layer accordion. -->
+  <!-- El Contexto Global es deliberadamente independiente del acordeón de capa izquierda. -->
   <aside id="right-context-rail">
     <div id="global-context-panel" class="panel-collapsible collapsed" data-panel-id="global-context-panel">
       <div class="panel-glow"></div>
@@ -691,59 +690,59 @@
           <span class="panel-title">CONTEXTO</span>
           <span class="panel-divider"></span>
           <div id="context-radio-dock" class="context-radio-dock">
-            <button id="context-radio-toggle-btn" class="context-radio-toggle" type="button" aria-expanded="false" aria-controls="context-radio-mini" aria-label="Open compact Radio controls" title="Open compact Radio controls">
+            <button id="context-radio-toggle-btn" class="context-radio-toggle" type="button" aria-expanded="false" aria-controls="context-radio-mini" aria-label="Abrir controles de Radio compactos" title="Abrir controles de Radio compactos">
               <span class="material-symbols-outlined" aria-hidden="true">radio</span>
             </button>
-            <div id="context-radio-mini" class="context-radio-mini" role="group" aria-label="Compact Radio controls" hidden>
+            <div id="context-radio-mini" class="context-radio-mini" role="group" aria-label="Controles de Radio compactos" hidden>
               <div class="context-radio-mini-heading">
                 <span>RADIO</span>
-                <strong id="context-radio-mini-station">RADIO READY</strong>
+                <strong id="context-radio-mini-station">RADIO LISTA</strong>
                 <span class="context-radio-mini-actions">
-                  <button id="context-radio-details-btn" type="button" aria-label="Open detailed Radio controls" aria-expanded="false" aria-controls="radio-panel" title="Open detailed Radio controls">
+                  <button id="context-radio-details-btn" type="button" aria-label="Abrir controles de Radio detallados" aria-expanded="false" aria-controls="radio-panel" title="Abrir controles de Radio detallados">
                     <span class="material-symbols-outlined" aria-hidden="true">open_in_full</span>
                   </button>
-                  <button id="context-radio-mini-close-btn" type="button" aria-label="Close compact Radio controls" title="Close compact Radio controls">
+                  <button id="context-radio-mini-close-btn" type="button" aria-label="Cerrar controles de Radio compactos" title="Cerrar controles de Radio compactos">
                     <span class="material-symbols-outlined" aria-hidden="true">close</span>
                   </button>
                 </span>
               </div>
-              <button id="context-radio-mini-enable-btn" class="panel-layer-toggle" type="button" aria-pressed="false">ENABLE</button>
+              <button id="context-radio-mini-enable-btn" class="panel-layer-toggle" type="button" aria-pressed="false">ACTIVAR</button>
               <div class="context-radio-mini-transport">
-                <button id="context-radio-mini-prev-btn" type="button" aria-label="Previous filtered radio station" title="Previous station" disabled>◀◀</button>
-                <button id="context-radio-mini-play-btn" type="button" aria-label="Play selected radio station" title="Play" disabled>▶</button>
-                <button id="context-radio-mini-next-btn" type="button" aria-label="Next filtered radio station" title="Next station" disabled>▶▶</button>
+                <button id="context-radio-mini-prev-btn" type="button" aria-label="Estación de radio filtrada anterior" title="Estación anterior" disabled>◀◀</button>
+                <button id="context-radio-mini-play-btn" type="button" aria-label="Reproducir estación de radio seleccionada" title="Reproducir" disabled>▶</button>
+                <button id="context-radio-mini-next-btn" type="button" aria-label="Siguiente estación de radio filtrada" title="Siguiente estación" disabled>▶▶</button>
               </div>
               <label class="context-radio-mini-volume" for="context-radio-mini-volume">
-                <span>VOLUME</span>
-                <input id="context-radio-mini-volume" class="gev-quantitative-slider" type="range" min="0" max="100" value="80" aria-label="Compact Radio volume" disabled />
+                <span>VOLUMEN</span>
+                <input id="context-radio-mini-volume" class="gev-quantitative-slider" type="range" min="0" max="100" value="80" aria-label="Volumen de Radio compacto" disabled />
                 <output id="context-radio-mini-volume-value" class="gev-slider-value" for="context-radio-mini-volume">80%</output>
               </label>
             </div>
           </div>
-          <button class="panel-collapse-btn" data-collapse-target="global-context-panel" title="Expand panel">▶</button>
+          <button class="panel-collapse-btn" data-collapse-target="global-context-panel" title="Expandir panel">▶</button>
         </div>
-        <div class="global-context-modes" role="tablist" aria-label="Context mode">
-          <button id="global-context-flights-btn" class="context-mode-button" type="button" role="tab" tabindex="0" aria-selected="false" aria-controls="context-flights-view" aria-label="CONTACTS" title="Cycles the nearest contacts of whatever type you select — planes, vessels, installations. Satellites track independently.">
+        <div class="global-context-modes" role="tablist" aria-label="Modo de contexto">
+          <button id="global-context-flights-btn" class="context-mode-button" type="button" role="tab" tabindex="0" aria-selected="false" aria-controls="context-flights-view" aria-label="CONTACTOS" title="Cicla los contactos más cercanos del tipo que selecciones — aviones, embarcaciones, instalaciones. Los satélites se rastrean independientemente.">
             <span class="material-symbols-outlined" aria-hidden="true">radar</span>
-            <span>CONTACTS</span>
+            <span>CONTACTOS</span>
           </button>
           <button id="global-context-missions-btn" class="context-mode-button" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="context-missions-view">
             <span class="material-symbols-outlined" aria-hidden="true">rocket_launch</span>
-            <span>SPACE MISSIONS</span>
+            <span>MISIONES ESPACIALES</span>
           </button>
         </div>
         <div id="context-mode-standby" class="context-mode-standby">
           <strong>SELECCIONAR CONTEXTO</strong>
-          <span>CONTACTOS — aviones · barcos · lugares<br>MISIONES ESPACIALES— Lanzamientos &amp; orbital assets</span>
+          <span>CONTACTOS — aviones · barcos · lugares<br>MISIONES ESPACIALES— Lanzamientos &amp; activos orbitales</span>
         </div>
         <section id="context-flights-view" class="context-mode-view" role="tabpanel" aria-labelledby="global-context-flights-btn" hidden>
-          <div class="global-context-actions" aria-label="Contact Context actions">
+          <div class="global-context-actions" aria-label="Acciones de Contexto de Contacto">
             <button id="cockpit-entry" type="button" hidden>
               <span class="material-symbols-outlined" aria-hidden="true">flight</span>
               <span>CABINA</span>
             </button>
-            <button id="installations-search-btn" class="panel-layer-toggle" type="button">SEARCH NEARBY SITES</button>
-            <button id="tr3b-toggle" class="tr3b-toggle" type="button" aria-pressed="false" hidden aria-label="Reclassify tracked contact as TR-3B" title="Reclassify as TR-3B">🛸</button>
+            <button id="installations-search-btn" class="panel-layer-toggle" type="button">BUSCAR SITIOS CERCANOS</button>
+            <button id="tr3b-toggle" class="tr3b-toggle" type="button" aria-pressed="false" hidden aria-label="Reclasificar contacto rastreado como TR-3B" title="Reclasificar como TR-3B">🛸</button>
           </div>
           <aside id="military-awareness-panel">
             <div class="military-awareness-standby">
@@ -754,73 +753,73 @@
         </section>
         <section id="context-missions-view" class="context-mode-view" role="tabpanel" aria-labelledby="global-context-missions-btn" hidden>
           <div id="space-mission-panel-host">
-            <div id="space-mission-roster" class="space-mission-roster" aria-label="Available Space Missions">
+            <div id="space-mission-roster" class="space-mission-roster" aria-label="Misiones Espaciales Disponibles">
               <div class="space-mission-roster-header">
                 <div>
                   <strong>MISIONES DISPONIBLES</strong>
-                  <span>SELECT A MISSION TO INSPECT</span>
+                  <span>SELECCIONAR UNA MISIÓN PARA INSPECCIONAR</span>
                 </div>
                 <output data-mission-roster-count>—</output>
               </div>
               <div class="space-mission-roster-list" data-mission-roster-list>
-                <div class="space-mission-roster-empty">LOADING 30-DAY MISSION INDEX</div>
+                <div class="space-mission-roster-empty">CARGANDO ÍNDICE DE MISIÓN DE 30 DÍAS</div>
               </div>
             </div>
           </div>
         </section>
-        <section id="radio-panel" class="panel-collapsible collapsed" data-panel-id="radio-panel" aria-label="Internet radio companion">
+        <section id="radio-panel" class="panel-collapsible collapsed" data-panel-id="radio-panel" aria-label="Compañero de radio por Internet">
           <div class="radio-panel-inner">
             <div class="panel-header">
               <span class="panel-title">RADIO</span>
               <span id="radio-layer-state" class="radio-layer-state">OFF</span>
               <span class="panel-divider"></span>
-              <button class="panel-collapse-btn" data-collapse-target="radio-panel" title="Expand Radio" aria-label="Expand Radio section">+</button>
+              <button class="panel-collapse-btn" data-collapse-target="radio-panel" title="Expandir Radio" aria-label="Expandir sección de Radio">+</button>
             </div>
             <div class="radio-directory-row">
-              <button id="radio-enable-btn" class="panel-layer-toggle" type="button" aria-pressed="false">ENABLE</button>
-              <label class="radio-filter-label" for="radio-filter">STATION TAG</label>
-              <select id="radio-filter" aria-label="Filter stations by station tag" disabled>
-                <option value="all">All</option>
+              <button id="radio-enable-btn" class="panel-layer-toggle" type="button" aria-pressed="false">ACTIVAR</button>
+              <label class="radio-filter-label" for="radio-filter">ETIQUETA DE ESTACIÓN</label>
+              <select id="radio-filter" aria-label="Filtrar estaciones por etiqueta de estación" disabled>
+                <option value="all">Todas</option>
               </select>
             </div>
             <div id="radio-station-card" class="radio-station-card" aria-live="polite">
-              <strong id="radio-station-name">NO STATION SELECTED</strong>
-              <span id="radio-station-meta">Enable Radio, then choose a globe marker or use next.</span>
+              <strong id="radio-station-name">NINGUNA ESTACIÓN SELECCIONADA</strong>
+              <span id="radio-station-meta">Activar Radio y luego elegir un marcador de globo o usar siguiente.</span>
               <span id="radio-station-tags"></span>
             </div>
             <div id="radio-tuner" class="radio-tuner" hidden>
               <div class="radio-tuner-header">
-                <span id="radio-tuner-band-label">DIRECTORY BAND</span>
-                <output id="radio-tuner-value" for="radio-tuner-slider">DRAG TO TUNE</output>
+                <span id="radio-tuner-band-label">BANDA DE DIRECTORIO</span>
+                <output id="radio-tuner-value" for="radio-tuner-slider">ARRASTRA PARA SINTONIZAR</output>
               </div>
               <div class="radio-tuner-dial">
                 <div class="radio-tuner-scale" aria-hidden="true"></div>
                 <div id="radio-tuner-needle" class="radio-tuner-needle" aria-hidden="true"></div>
                 <input id="radio-tuner-slider" type="range" min="0" max="0" step="1" value="0"
-                  aria-label="Tune available internet radio stations" aria-valuetext="No station available" disabled />
+                  aria-label="Sintonizar estaciones de radio por Internet disponibles" aria-valuetext="Ninguna estación disponible" disabled />
               </div>
               <div class="radio-tuner-readout">
-                <span id="radio-tuner-station">ALL · DRAG THE NEEDLE</span>
-                <span>SNAPS TO AVAILABLE STATIONS</span>
+                <span id="radio-tuner-station">TODAS · ARRASTRA LA AGUJA</span>
+                <span>SE AJUSTA A ESTACIONES DISPONIBLES</span>
               </div>
             </div>
-            <div class="radio-transport" role="group" aria-label="Radio playback">
-              <button id="radio-prev-btn" type="button" aria-label="Previous filtered station" disabled>PREV</button>
-              <button id="radio-play-btn" type="button" aria-label="Play selected station" disabled>PLAY</button>
-              <button id="radio-next-btn" type="button" aria-label="Next filtered station" disabled>NEXT</button>
-              <button id="radio-stop-btn" type="button" aria-label="Stop radio playback" disabled>STOP</button>
+            <div class="radio-transport" role="group" aria-label="Reproducción de radio">
+              <button id="radio-prev-btn" type="button" aria-label="Estación filtrada anterior" disabled>ANTERIOR</button>
+              <button id="radio-play-btn" type="button" aria-label="Reproducir estación seleccionada" disabled>REPRODUCIR</button>
+              <button id="radio-next-btn" type="button" aria-label="Siguiente estación filtrada" disabled>SIGUIENTE</button>
+              <button id="radio-stop-btn" type="button" aria-label="Detener reproducción de radio" disabled>DETENER</button>
             </div>
             <label class="radio-volume-row" for="radio-volume">
-              <span>VOLUME</span>
-              <input id="radio-volume" class="gev-quantitative-slider" type="range" min="0" max="100" value="80" aria-label="Radio volume" />
+              <span>VOLUMEN</span>
+              <input id="radio-volume" class="gev-quantitative-slider" type="range" min="0" max="100" value="80" aria-label="Volumen de radio" />
               <output id="radio-volume-value" class="gev-slider-value" for="radio-volume">80%</output>
             </label>
-            <div id="radio-playback-state" class="radio-playback-state" role="status" aria-live="polite">Radio off</div>
+            <div id="radio-playback-state" class="radio-playback-state" role="status" aria-live="polite">Radio apagada</div>
             <div class="radio-links">
-              <a id="radio-station-homepage" href="#" target="_blank" rel="noopener noreferrer" hidden>ESTACIÓN de RADIO</a>
+              <a id="radio-station-homepage" href="#" target="_blank" rel="noopener noreferrer" hidden>ESTACIÓN DE RADIO</a>
               <a href="https://www.radio-browser.info/" target="_blank" rel="noopener noreferrer">DIRECTORIO: RADIO BROWSER</a>
             </div>
-            <p class="radio-privacy">Audio conecta directamente a tu browser. Tu IP es visible para la estación.</p>
+            <p class="radio-privacy">El audio se conecta directamente a tu navegador. Tu IP es visible para la estación.</p>
           </div>
         </section>
       </div>
@@ -829,25 +828,25 @@
 
   <div id="scene-runtime"></div>
 
-  <!-- Explicit mission choice on a fresh session. Live feeds are not auto-enabled
-       until the visitor asks; shared links skip this surface entirely. It returns
-       every session until "Don't show this again" is ticked — see
-       src/firstRunExperience.js for the full show policy. -->
+  <!-- Elección de misión explícita en una sesión nueva. Las fuentes en vivo no se activan automáticamente
+       hasta que el visitante lo solicite; los enlaces compartidos omiten completamente esta superficie. Devuelve
+       cada sesión hasta que se marque "No mostrar esto de nuevo" — ver
+       src/firstRunExperience.js para la política de visualización completa. -->
   <aside id="first-run-launcher" role="dialog" aria-labelledby="first-run-title" aria-describedby="first-run-description" hidden>
     <div class="first-run-scanline" aria-hidden="true"></div>
     <header class="first-run-header">
-      <span class="first-run-kicker">CONTROL DE MISION · PRIMER LANZAMIENTO</span>
+      <span class="first-run-kicker">CONTROL DE MISIÓN · PRIMER LANZAMIENTO</span>
     </header>
-    <h2 id="first-run-title">Elije tu primer vista</h2>
-    <!-- The card's one persuasive line, final and VERBATIM (2026-08-23)
-         — including the unspaced em dash. The arc it has to carry: this looks
-         like something you should not have access to → the sources are all
-         public → the data is real. Tile subcopy stays purely functional. -->
+    <h2 id="first-run-title">Elige tu primera vista</h2>
+    <!-- La única línea persuasiva de la tarjeta, final e IDÉNTICA (2026-08-23)
+         — incluida la línea de em sin espacios. El arco que tiene que recorrer: esto parece
+         algo a lo que no deberías tener acceso → las fuentes son todas
+         públicas → los datos son reales. El subcopy del mosaico se mantiene puramente funcional. -->
     <p id="first-run-description">Los datos son reales.</p>
     <div class="first-run-choices">
       <button type="button" data-first-run-choice="contacts">
         <span class="material-symbols-outlined" aria-hidden="true">radar</span>
-        <span><strong>LIVE CONTACTOS</strong><small>Aeronaves, barcos e inteligencia cercana</small></span>
+        <span><strong>CONTACTOS EN VIVO</strong><small>Aeronaves, barcos e inteligencia cercana</small></span>
         <span class="material-symbols-outlined first-run-arrow" aria-hidden="true">arrow_forward</span>
       </button>
       <button type="button" data-first-run-choice="space-missions">
@@ -857,11 +856,11 @@
       </button>
       <button type="button" data-first-run-choice="environmental">
         <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
-        <!-- Title text is painted from ENVIRONMENTAL_LABEL_CHOICE at init. -->
-        <!-- Subcopy names BOTH feeds this tile turns on, because the launcher
-             optimizes for the fully configured experience (product decision,
-             2026-08-23) — see the mission table in src/firstRunExperience.js. -->
-        <span><strong data-first-run-environmental-title>ENVIRONMENTAL</strong><small>Live earthquakes and active fires, from USGS and NASA</small></span>
+        <!-- El texto del título se pinta desde ENVIRONMENTAL_LABEL_CHOICE en init. -->
+        <!-- El subcopy nombra AMBAS fuentes que este mosaico activa, porque el iniciador
+             optimiza para la experiencia completamente configurada (decisión de producto,
+             2026-08-23) — ver la tabla de misiones en src/firstRunExperience.js. -->
+        <span><strong data-first-run-environmental-title>AMBIENTAL</strong><small>Terremotos en vivo y incendios activos, de USGS y NASA</small></span>
         <span class="material-symbols-outlined first-run-arrow" aria-hidden="true">arrow_forward</span>
       </button>
       <button type="button" class="first-run-explore" data-first-run-choice="explore">
@@ -873,19 +872,19 @@
     <div class="first-run-footer">
       <label class="first-run-suppress">
         <input type="checkbox" data-first-run-suppress />
-        <span>Don't show this again</span>
+        <span>No mostrar esto de nuevo</span>
       </label>
-      <span>ESC to dismiss</span>
+      <span>ESC para descartar</span>
     </div>
-    <!-- Kept out of the footer row: it swaps to mission progress and errors, and
-         a live region that also holds layout makes the row jump as it speaks. -->
-    <p class="first-run-note" data-first-run-status role="status" aria-live="polite">Tip: the GEV MIC button in the dock lets you talk to the map.</p>
+    <!-- Mantenido fuera de la fila de pie de página: se cambia al progreso de misión y a los errores, y
+         una región activa que también mantiene el diseño hace que la fila salte mientras habla. -->
+    <p class="first-run-note" data-first-run-status role="status" aria-live="polite">Consejo: el botón GEV MIC en el muelle te permite hablar con el mapa.</p>
   </aside>
 
-  <!-- Intelligence HUD Overlay -->
+  <!-- Superposición HUD de Inteligencia -->
   <div id="intel-hud"></div>
 
-  <!-- Loading screen -->
+  <!-- Pantalla de carga -->
   <div id="loading-screen">
     <div class="loader-content">
       <span class="loader-logo brand-logo" data-logo-gaze data-logo-src="/logo.svg" aria-hidden="true"><img src="/logo.svg" alt="" /></span>
